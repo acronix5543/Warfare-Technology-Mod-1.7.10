@@ -57,6 +57,9 @@ repositories {
 		name = 'ModMaven'
 		url = 'https://modmaven.dev'
 	}
+	maven {
+		url 'https://jitpack.io'
+	}
 	//maven {
 	//	name = "CurseForge"
 	//	url = "https://minecraft.curseforge.com/api/maven/"
@@ -75,6 +78,8 @@ dependencies {
 
 	//compileOnly 'inventory-tweaks:InventoryTweaks:1.62+beta.84:api'
 	implementation "li.cil.oc:OpenComputers:MC1.7.10-1.5.+:api"
+
+	implementation 'com.github.HbmMods:Hbm-s-Nuclear-Tech-GIT:c7f28e8853'
 }
 
 processResources {

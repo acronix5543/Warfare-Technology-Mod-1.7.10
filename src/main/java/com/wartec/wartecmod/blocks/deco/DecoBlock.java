@@ -1,6 +1,5 @@
 package com.wartec.wartecmod.blocks.deco;
 
-import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.tileentity.deco.TileEntityDecoBlock;
 
 import net.minecraft.block.BlockContainer;

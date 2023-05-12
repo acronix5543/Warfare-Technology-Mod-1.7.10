@@ -1,11 +1,6 @@
 package com.wartec.wartecmod.Proxies;
 
 
-import com.hbm.entity.missile.EntityMissileNuclear;
-import com.hbm.items.ModItems;
-import com.hbm.particle.ParticleContrail;
-import com.hbm.render.entity.rocket.RenderMissileNuclear;
-import com.hbm.render.item.ItemRenderMissile;
 import com.wartec.wartecmod.entity.missile.EntityCruiseMissileBuster;
 import com.wartec.wartecmod.entity.missile.EntityCruiseMissileCluster;
 import com.wartec.wartecmod.entity.missile.EntityCruiseMissileEmp;
@@ -63,12 +58,6 @@ import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityCloudFX;
-import net.minecraft.client.particle.EntityLargeExplodeFX;
-import net.minecraft.client.particle.EntityReddustFX;
-import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 public class wartecmodClientProxy extends wartecmodProxy {

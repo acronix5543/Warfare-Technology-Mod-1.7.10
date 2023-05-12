@@ -1,27 +1,5 @@
 package com.wartec.wartecmod;
 
-import java.lang.reflect.Method;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
-import org.apache.logging.log4j.Logger;
-
-import com.hbm.blocks.ModBlocks;
-import com.hbm.entity.missile.EntityMissileNuclear;
-import com.hbm.handler.GUIHandler;
-import com.hbm.hazard.HazardRegistry;
-import com.hbm.inventory.recipes.AssemblerRecipes;
-import com.hbm.inventory.recipes.MachineRecipes;
-import com.hbm.inventory.RecipesCommon.AStack;
-import com.hbm.inventory.RecipesCommon.ComparableStack;
-import com.hbm.inventory.RecipesCommon.OreDictStack;
-import com.hbm.items.ModItems;
-import com.hbm.items.machine.ItemAssemblyTemplate;
-import com.hbm.lib.RefStrings;
-import com.hbm.main.MainRegistry;
 import com.wartec.wartecmod.Proxies.wartecmodProxy;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
 import com.wartec.wartecmod.entity.missile.EntityCJ10Missile;
@@ -50,37 +28,26 @@ import com.wartec.wartecmod.handler.WartecmodGUIHandler;
 import com.wartec.wartecmod.hazard.wartecHazardRegistry;
 import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.packet.PacketRegistry;
-import com.wartec.wartecmod.savedata.satellites.SatelliteNuclear;
 import com.wartec.wartecmod.savedata.satellites.SatelliteRegistry;
 import com.wartec.wartecmod.tileentity.TileEntityRegistry;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 import com.wartec.wartecmod.inventory.wartecmodAssemblerRecipes;
 import com.wartec.wartecmod.inventory.wartecmodShredderRecipes;
 import com.wartec.wartecmod.inventory.wartecmodVanillaRecipes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.ModClassLoader;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
-import scala.tools.nsc.doc.model.Public;
 
 @Mod(modid = com.wartec.wartecmod.lib.RefStrings.MODID, name = com.wartec.wartecmod.lib.RefStrings.NAME, version = com.wartec.wartecmod.lib.RefStrings.VERSION)
 public class wartecmod {

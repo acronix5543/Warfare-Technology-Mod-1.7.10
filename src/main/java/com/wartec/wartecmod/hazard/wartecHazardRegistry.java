@@ -1,7 +1,5 @@
 package com.wartec.wartecmod.hazard;
 
-import static com.hbm.items.ModItems.ingot_uranium_fuel;
-
 import com.hbm.hazard.HazardData;
 import com.hbm.hazard.HazardSystem;
 import com.hbm.hazard.type.HazardTypeAsbestos;

@@ -1,188 +1,184 @@
+/*
+ * Decompiled with CFR 0.150.
+ *
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer
+ *  net.minecraft.tileentity.TileEntity
+ *  org.lwjgl.opengl.GL11
+ */
 package com.wartec.wartecmod.render.tileentity;
 
-import org.lwjgl.opengl.GL11;
-
-import com.hbm.main.ResourceManager;
-import com.hbm.tileentity.bomb.TileEntityLaunchPad;
+import com.wartec.wartecmod.ResourceManager;
+import com.wartec.wartecmod.blocks.launcher.VerticalLauncher;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
-
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import static org.lwjgl.opengl.GL11.*;
 
-public class RenderTileEntityLaunchTube extends TileEntitySpecialRenderer {
+public class RenderTileEntityLaunchTube
+		extends TileEntitySpecialRenderer {
 
-    @Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)
-    {
-        GL11.glPushMatrix();
-        GL11.glTranslated(x + 0.5D, y, z + 0.5D);
-        GL11.glEnable(GL11.GL_LIGHTING);
-        GL11.glDisable(GL11.GL_CULL_FACE);
-        
-        bindTexture(com.wartec.wartecmod.ResourceManager.launcher_tex);
-        com.wartec.wartecmod.ResourceManager.launchTube.renderAll();
+	@Override
+	public void renderTileEntityAt(TileEntity tem, double x, double y, double z, float f) {
+		VerticalLauncher block = (VerticalLauncher) tem.getBlockType();
 
-        GL11.glDisable(GL11.GL_CULL_FACE);
-        int state = 0;
-        
-        if(tileEntity instanceof TileEntityLaunchTube)
-        	state = ((TileEntityLaunchTube)tileEntity).state;
-        
-	        GL11.glTranslated(0, 1, 0);
-	        
-			if(state == 1)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 2)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_buster_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 3)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Cluster_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 4)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Gas_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 5)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Emp_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 6)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_FAE_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 7)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_nuclear_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 8)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_H_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 9)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_Scramjet.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_Booster.renderAll();
-				
-			}
-			if(state == 10)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Engine_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Engine.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Booster_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Booster.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Protection_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Protection.renderAll();
-				
-			}
-			if(state == 11)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Tomahawk_Missile_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-				
-			}
-			if(state == 12)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Kalibr_Missile_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Kalibr_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Kalibr_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Kalibr_Missile_Fins_Folded.renderAll();
-				
-			}
-			if(state == 13)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Engine_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Engine.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Booster_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Booster.renderAll();
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Protection_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Supersonic_Cruise_Missile_Protection.renderAll();
-				
-			}
-			if(state == 14)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				GL11.glTranslated(0, 0, 0);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_Nuclear_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_Scramjet.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Hypersonic_Cruise_Missile_Booster.renderAll();
-				
-			}
-			if(state == 15)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_nuclear_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Base.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Booster.renderAll();
-				com.wartec.wartecmod.ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
-			}
-			if(state == 16)
-			{
-				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Missile_Anti_Air_Tier1_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Missile_Anti_Air_Tier1.renderAll();
-			}
-			
-			
-	        GL11.glEnable(GL11.GL_CULL_FACE);
+		final int[] core = block.findCore(Minecraft.getMinecraft().theWorld.provider.worldObj, tem.xCoord, tem.yCoord, tem.zCoord);
+		if(core == null)
+			return;
 
-        GL11.glPopMatrix();
-    }
+		if(!(tem instanceof TileEntityLaunchTube))
+			return;
 
+		TileEntityLaunchTube te = (TileEntityLaunchTube) Minecraft.getMinecraft().theWorld.getTileEntity(core[0], core[1], core[2]);
+
+		glPushMatrix();
+		glTranslated((x + 0.5), y, (z + 0.5));
+		glEnable(GL_LIGHTING);
+		glDisable(GL_CULL_FACE);
+		this.bindTexture(ResourceManager.launcher_tex);
+		ResourceManager.launchTube.renderPart("base");
+
+		glPushMatrix();
+		glTranslated(-0.5, 11, 0);
+		glRotated(te.openingAnimation, 0, 0, 1);
+		glTranslated(0.5, 0, 0);
+		this.bindTexture(ResourceManager.launcher_cover_tex);
+		ResourceManager.launchTube.renderPart("cover");
+		glPopMatrix();
+
+		glDisable(GL_CULL_FACE);
+		int state  = te.state;
+		glTranslated(0.0, 1.0, 0.0);
+		if (state == 1) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 2) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_buster_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 3) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_Cluster_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 4) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_Gas_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 5) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_Emp_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 6) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_FAE_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 7) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_nuclear_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 8) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_H_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 9) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Hypersonic_Cruise_Missile_tex);
+			ResourceManager.entity_Hypersonic_Cruise_Missile_Scramjet.renderAll();
+			ResourceManager.entity_Hypersonic_Cruise_Missile_Booster.renderAll();
+		}
+		if (state == 10) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Engine_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Engine.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Booster_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Booster.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Protection_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Protection.renderAll();
+		}
+		if (state == 11) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Tomahawk_Missile_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 12) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Kalibr_Missile_tex);
+			ResourceManager.entity_Kalibr_Missile_Base.renderAll();
+			ResourceManager.entity_Kalibr_Missile_Booster.renderAll();
+			ResourceManager.entity_Kalibr_Missile_Fins_Folded.renderAll();
+		}
+		if (state == 13) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Ramjet.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Fuselage.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Engine_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Engine.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Booster_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Booster.renderAll();
+			this.bindTexture(ResourceManager.entity_Supersonic_Cruise_Missile_Protection_tex);
+			ResourceManager.entity_Supersonic_Cruise_Missile_Protection.renderAll();
+		}
+		if (state == 14) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			glTranslated(0.0, 0.0, 0.0);
+			this.bindTexture(ResourceManager.entity_Hypersonic_Cruise_Missile_Nuclear_tex);
+			ResourceManager.entity_Hypersonic_Cruise_Missile_Scramjet.renderAll();
+			ResourceManager.entity_Hypersonic_Cruise_Missile_Booster.renderAll();
+		}
+		if (state == 15) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Cruise_Missile_nuclear_tex);
+			ResourceManager.entity_Cruise_Missile_Base.renderAll();
+			ResourceManager.entity_Cruise_Missile_Booster.renderAll();
+			ResourceManager.entity_Cruise_Missile_Sealing.renderAll();
+		}
+		if (state == 16) {
+			glScalef(1.0f, 1.0f, 1.0f);
+			this.bindTexture(ResourceManager.entity_Missile_Anti_Air_Tier1_tex);
+			ResourceManager.entity_Missile_Anti_Air_Tier1.renderAll();
+		}
+		glEnable(GL_CULL_FACE);
+
+		glPopMatrix();
+	}
 }
+

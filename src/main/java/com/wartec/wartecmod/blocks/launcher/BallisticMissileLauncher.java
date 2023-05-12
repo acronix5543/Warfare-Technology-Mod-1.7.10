@@ -2,6 +2,7 @@ package com.wartec.wartecmod.blocks.launcher;
 
 import java.util.Random;
 
+import com.wartec.wartecmod.items.wartecmodItems;
 import org.apache.logging.log4j.Level;
 
 import com.hbm.config.GeneralConfig;
@@ -9,25 +10,13 @@ import com.hbm.entity.missile.EntityCarrier;
 import com.hbm.entity.missile.EntityMissileAntiBallistic;
 import com.hbm.interfaces.IBomb;
 import com.hbm.interfaces.Spaghetti;
-import com.hbm.interfaces.IBomb.BombReturnCode;
 import com.hbm.items.ModItems;
 import com.hbm.main.MainRegistry;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileBuster;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileCluster;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileEmp;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileTB;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileH;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileHE;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileNuclear;
 import com.wartec.wartecmod.entity.missile.EntityIskanderMissile;
-import com.wartec.wartecmod.entity.missile.EntityLrhwMissile;
 import com.wartec.wartecmod.entity.missile.EntityMissileMicroGas;
 import com.wartec.wartecmod.entity.missile.EntityMissileMicroNeutron;
-import com.wartec.wartecmod.entity.missile.EntityGlideWeaponBase;
-import com.wartec.wartecmod.entity.missile.EntityHypersonicCruiseMissileNuclear;
 import com.wartec.wartecmod.entity.missile.EntityMissileSlbm;
-import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
 
 

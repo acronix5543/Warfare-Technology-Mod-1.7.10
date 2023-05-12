@@ -3,8 +3,8 @@ package com.wartec.wartecmod.inventory;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
-import com.wartec.wartecmod.items.wartecmodItems;
 
+import com.wartec.wartecmod.items.wartecmodItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
