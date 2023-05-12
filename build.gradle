@@ -32,8 +32,8 @@ if(!mod_build_number.isEmpty()) {
 	version_name = mod_version + "_X" + mod_build_number
 	version = "[${version_name}]"
 }
-group = "com.hbm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "HBM-NTM"
+group = "com.wartec" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "WarTec"
 compileJava.options.encoding = 'UTF-8'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
