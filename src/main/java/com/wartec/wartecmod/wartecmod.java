@@ -141,7 +141,7 @@ public class wartecmod {
 		wartecmodShredderRecipes.Shredderrecipes();
 		wartecmodVanillaRecipes.VanillaRecipes();
 		proxy.registerRenderers();
-		SatelliteRegistry.main(new String[]{});
+		SatelliteRegistry.registerAll();
 		
 	
 	}

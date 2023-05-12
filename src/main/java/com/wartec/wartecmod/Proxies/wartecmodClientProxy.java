@@ -1,61 +1,18 @@
 package com.wartec.wartecmod.Proxies;
 
 
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileBuster;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileCluster;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileEmp;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileH;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileHE;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileNuclear;
-import com.wartec.wartecmod.entity.missile.EntityHypersonicCruiseMissileNuclear;
-import com.wartec.wartecmod.entity.missile.EntityCruiseMissileTB;
-import com.wartec.wartecmod.entity.missile.EntityHypersonicCruiseMissileHE;
-import com.wartec.wartecmod.entity.missile.EntityIskanderMissile;
-import com.wartec.wartecmod.entity.missile.EntityKalibrMissile;
-import com.wartec.wartecmod.entity.missile.EntityLrhwMissile;
-import com.wartec.wartecmod.entity.missile.EntityMissileAntiAirTier1;
-import com.wartec.wartecmod.entity.missile.EntityMissileAntiBallisticNuclear;
-import com.wartec.wartecmod.entity.missile.EntityMissileMicroGas;
-import com.wartec.wartecmod.entity.missile.EntityMissileMicroNeutron;
-import com.wartec.wartecmod.entity.missile.EntityMissileSlbm;
-import com.wartec.wartecmod.entity.missile.EntitySatelliteMissileNuclear;
-import com.wartec.wartecmod.entity.missile.EntitySupersonicCruiseMissileHE;
-import com.wartec.wartecmod.entity.missile.EntitySupersonicCruiseMissileH;
-import com.wartec.wartecmod.entity.missile.EntityTomahawkMissile;
+import com.wartec.wartecmod.entity.missile.*;
 import com.wartec.wartecmod.items.wartecmodItems;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileBuster;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileCluster;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileEmp;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileH;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileHE;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileNuclear;
-import com.wartec.wartecmod.render.entity.missile.RenderHypersonicCruiseMissileNuclear;
-import com.wartec.wartecmod.render.entity.missile.RenderCruiseMissileFAE;
-import com.wartec.wartecmod.render.entity.missile.RenderHypersonicCruiseMissileHE;
-import com.wartec.wartecmod.render.entity.missile.RenderIskanderMissile;
-import com.wartec.wartecmod.render.entity.missile.RenderKalibrMissile;
-import com.wartec.wartecmod.render.entity.missile.RenderLrhwMissile;
-import com.wartec.wartecmod.render.entity.missile.RenderMissileAntiAirTier1;
-import com.wartec.wartecmod.render.entity.missile.RenderMissileAntiBallisticNuclear;
-import com.wartec.wartecmod.render.entity.missile.RenderMissileMicroGas;
-import com.wartec.wartecmod.render.entity.missile.RenderMissileMicroNeutron;
-import com.wartec.wartecmod.render.entity.missile.RenderMissileSlbm;
-import com.wartec.wartecmod.render.entity.missile.RenderSatelliteMissileNuclear;
-import com.wartec.wartecmod.render.entity.missile.RenderSupersonicCruiseMissileHE;
-import com.wartec.wartecmod.render.entity.missile.RenderSupersonicCruiseMissileH;
-import com.wartec.wartecmod.render.entity.missile.RenderTomahawkMissile;
-import com.wartec.wartecmod.render.item.ItemRenderCj10Missile;
-import com.wartec.wartecmod.render.item.ItemRenderIskanderMissile;
-import com.wartec.wartecmod.render.item.ItemRenderKalibrMissile;
-import com.wartec.wartecmod.render.item.ItemRenderTomahawkMissile;
+import com.wartec.wartecmod.render.entity.missile.*;
+import com.wartec.wartecmod.render.item.*;
 import com.wartec.wartecmod.render.tileentity.RenderTileEntityBallisticMissileLauncher;
-import com.wartec.wartecmod.render.tileentity.RenderTileEntityDecoBlock;
-import com.wartec.wartecmod.render.tileentity.RenderTileEntityLaunchTube;
+import com.wartec.wartecmod.render.tileentity.*;
 import com.wartec.wartecmod.tileentity.deco.TileEntityDecoBlock;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 
 
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -67,6 +24,7 @@ public class wartecmodClientProxy extends wartecmodProxy {
 		//TE
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDecoBlock.class, new RenderTileEntityDecoBlock());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchTube.class, new RenderTileEntityLaunchTube());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVlsExhaust.class, new RenderTileEntityVlsExhaust());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBallisticMissileLauncher.class, new RenderTileEntityBallisticMissileLauncher());
 
          //Entities

@@ -76,7 +76,7 @@ public class VlsExhaust
 
     @Override
     public int[] getDimensions() {
-        return new int[] {height, 0, 0, 0, 0, 0};
+        return new int[] {height, 0, 2, 1, 0, 0};
     }
 
     @Override

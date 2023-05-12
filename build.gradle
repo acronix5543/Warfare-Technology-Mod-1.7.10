@@ -9,6 +9,23 @@ buildscript {
 	}
 }
 
+plugins {
+	id 'maven-publish'
+}
+
+publishing {
+	repositories {
+		maven {
+			name = "Warfare-Technology"
+			url = "https://maven.pkg.github.com/WarTechMod/Warfare-Technology-Mod-1.7.10"
+			credentials {
+				username = System.getenv("GITHUB_ACTOR")
+				password = System.getenv("GITHUB_TOKEN")
+			}
+		}
+	}
+}
+
 apply plugin: 'forge'
 def version_name = version = mod_version
 if(!mod_build_number.isEmpty()) {
