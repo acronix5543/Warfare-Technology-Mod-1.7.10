@@ -1,7 +1,6 @@
 package com.wartec.wartecmod.packet;
 
 import com.hbm.interfaces.Spaghetti;
-import com.hbm.tileentity.bomb.TileEntityLaunchPad;
 import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
 

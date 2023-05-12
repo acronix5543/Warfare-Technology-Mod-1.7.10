@@ -1,4 +1,4 @@
-//Items
+# Items
 item.ItemCruiseMissileNoWarheadTier1.name=Subsonic Cruise Missile without Warhead
 item.ItemEngineInletSectionTier1.name=Engine Inlet Tier 1
 item.ItemTurbofanEngineTier1.name=Turbofan Engine Tier 1
@@ -28,7 +28,7 @@ item.IngotArmorSteel.name=Armor Steel Ingot
 item.ItemMincedMeatRaw.name=Raw Minced Meat
 item.ItemMincedMeatCooked.name=Fried Minced Meat
 item.sat_nuclear.name=H.A.D.E.S - Satellite based Thermonuclear Weapon System
-//Missile Items
+# Missile Items
 item.ItemCruiseMissileHe.name=Subsonic HE Cruise Missile
 item.ItemCruiseMissileCluster.name=Subsonic Cluster Cruise Missile
 item.ItemCruiseMissileBuster.name=Subsonic Bunker Buster Cruise Missile
@@ -49,13 +49,13 @@ item.ItemKalibrMissile.name=3M14 Kalibr
 item.ItemTomahawkMissile.name=R/UGM-109H Tomahawk Block Va
 item.ItemCj10Missile.name=DongHai 10
 item.ItemIskanderMissile.name=9K723 Iskander-M
-//CreativeTabs
+# CreativeTabs
 itemGroup.tabwartecmodcruisemissiles=WarTech Mod Missiles
 itemGroup.tabwartecmodparts=WarTech Mod Resources and Parts
 itemGroup.tabwartecmodblocks=WarTech Mod Blocks
 itemGroup.tabwartecmodcons=WarTech Mod Consumables
 itemGroup.tabwartecmodgear=WarTech Mod Gear and Misc
-//Blocks
+# Blocks
 tile.blockArmorSteel.name=Block of Armor Steel
 tile.DecoBlockCruiseMissile.name=Subsonic HE Cruise Missile (Deco block)
 tile.DecoBlockCruiseMissileBuster.name=Subsonic Bunker Buster Cruise Missile (Deco block)
@@ -76,9 +76,9 @@ tile.DecoBlockFlagEU.name=European Union Flag
 tile.DecoBlockFlagAL.name=Arab League Flag
 tile.DecoBlockFlagCH.name=China Flag
 tile.DecoBlockFlagIsr.name=Israel Flag
-tile.VertcalLauncher.name=Vertical Launch System
+tile.LaunchTube.name=Vertical Launch System
 tile.BallisticMissileLauncher.name=Ballistic Missile Launcher
-//Container
+# Container
 container.LaunchTube=Launch Tube
 container.BallisticMissileLauncher=Ballistic Missile Launcher
 

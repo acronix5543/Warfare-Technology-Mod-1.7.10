@@ -1,8 +1,5 @@
 package com.wartec.wartecmod.savedata.satellites;
 
-import com.hbm.items.ModItems;
-import com.hbm.saveddata.satellites.Satellite;
-import com.hbm.saveddata.satellites.SatelliteMapper;
 import com.wartec.wartecmod.items.wartecmodItems;
 
 public class SatelliteRegistry {

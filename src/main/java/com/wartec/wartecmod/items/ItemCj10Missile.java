@@ -1,31 +1,48 @@
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.util.EnumChatFormatting
+ */
 package com.wartec.wartecmod.items;
 
-import java.util.List;
-
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
-public class ItemCj10Missile extends Item{
-	
-	public ItemCj10Missile() {
-		setMaxStackSize(1);
-		setUnlocalizedName("ItemCj10Missile");
-	}
-		
-		@Override
-		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-			
-			list.add(EnumChatFormatting.BOLD + "Warhead: " + EnumChatFormatting.YELLOW + "HE");
-			list.add(EnumChatFormatting.BOLD + "Strength: " + EnumChatFormatting.GRAY + "25.0");
-			list.add(EnumChatFormatting.BOLD + "Size: " + EnumChatFormatting.GRAY + "7.30m");
-			list.add(EnumChatFormatting.BOLD + "Speed: " + EnumChatFormatting.RED + "Subsonic");
-			list.add(EnumChatFormatting.BOLD + "Propulsion: " + EnumChatFormatting.RED + "Turbojet");
-			list.add(EnumChatFormatting.BOLD + "Size: " + EnumChatFormatting.GRAY + "51.8cm");
-			list.add(EnumChatFormatting.BOLD + "Min. Range: " + EnumChatFormatting.GRAY + "250 Blocks");
-			list.add(EnumChatFormatting.BOLD + "Max. Range: " + EnumChatFormatting.GREEN + "3500 Blocks");
-			list.add(EnumChatFormatting.BOLD + "Health: " + EnumChatFormatting.GREEN + "10.0HP");
+import java.util.List;
 
-	}
+public class ItemCj10Missile
+extends Item
+implements IMissileSpawningItem {
+    Class<? extends Entity> missile;
+
+    public ItemCj10Missile(Class<? extends Entity> missile) {
+        this.setMaxStackSize(1);
+        this.setUnlocalizedName("ItemCj10Missile");
+        this.missile = missile;
+    }
+
+    @Override
+    public Class<? extends Entity> getMissile() {
+        return missile;
+    }
+
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+        list.add((Object)EnumChatFormatting.BOLD + "Warhead: " + (Object)EnumChatFormatting.YELLOW + "HE");
+        list.add((Object)EnumChatFormatting.BOLD + "Strength: " + (Object)EnumChatFormatting.GRAY + "25.0");
+        list.add((Object)EnumChatFormatting.BOLD + "Size: " + (Object)EnumChatFormatting.GRAY + "7.30m");
+        list.add((Object)EnumChatFormatting.BOLD + "Speed: " + (Object)EnumChatFormatting.RED + "Subsonic");
+        list.add((Object)EnumChatFormatting.BOLD + "Propulsion: " + (Object)EnumChatFormatting.RED + "Turbojet");
+        list.add((Object)EnumChatFormatting.BOLD + "Size: " + (Object)EnumChatFormatting.GRAY + "51.8cm");
+        list.add((Object)EnumChatFormatting.BOLD + "Min. Range: " + (Object)EnumChatFormatting.GRAY + "250 Blocks");
+        list.add((Object)EnumChatFormatting.BOLD + "Max. Range: " + (Object)EnumChatFormatting.GREEN + "3500 Blocks");
+        list.add((Object)EnumChatFormatting.BOLD + "Health: " + (Object)EnumChatFormatting.GREEN + "10.0HP");
+    }
 }
+

@@ -1,10 +1,8 @@
 package com.wartec.wartecmod.inventory;
 
 import com.hbm.inventory.recipes.ShredderRecipes;
-import com.hbm.items.ModItems;
-import com.wartec.wartecmod.items.wartecmodItems;
 
-import net.minecraft.init.Blocks;
+import com.wartec.wartecmod.items.wartecmodItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 

@@ -1,29 +1,18 @@
 package com.wartec.wartecmod.inventory;
 
 import static com.hbm.inventory.OreDictManager.ANY_HIGHEXPLOSIVE;
-import static com.hbm.inventory.OreDictManager.PU239;
-
-import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
-import com.hbm.inventory.recipes.AssemblerRecipes;
 import com.hbm.inventory.OreDictManager;
 import com.hbm.inventory.RecipesCommon.AStack;
 import com.hbm.inventory.RecipesCommon.ComparableStack;
 import com.hbm.inventory.RecipesCommon.OreDictStack;
 import com.hbm.inventory.fluid.Fluids;
 import com.hbm.items.ModItems;
-import com.wartec.wartecmod.wartecmod;
-import com.wartec.wartecmod.items.wartecmodItems;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
+import com.wartec.wartecmod.items.wartecmodItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public class wartecmodAssemblerRecipes {
 	

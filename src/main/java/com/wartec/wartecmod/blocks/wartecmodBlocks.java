@@ -1,18 +1,11 @@
 package com.wartec.wartecmod.blocks;
 
-import com.hbm.blocks.bomb.LaunchPad;
 import com.hbm.blocks.generic.BlockGeneric;
-import com.hbm.blocks.test.TestRender;
-import com.hbm.lib.RefStrings;
-import com.hbm.main.MainRegistry;
 import com.wartec.wartecmod.wartecmod;
-import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.tileentity.deco.TileEntityDecoBlock;
-import com.wartec.wartecmod.blocks.deco.DecoBlock;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.Material;
 
 public class wartecmodBlocks {

@@ -33,6 +33,7 @@ public class ResourceManager {
 	public static final ResourceLocation block_Flag_tex_CH = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/block_Flag_tex_CH.png");
 	public static final ResourceLocation block_Flag_tex_Isr = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/block_Flag_tex_Isr.png");
 	public static final ResourceLocation launcher_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/launcher_tex.png");
+	public static final ResourceLocation launcher_cover_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/launcher_cover_tex.png");
 	public static final ResourceLocation BallisticMissileLauncher_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/Ballistic_Missile_Launcher.png");
 	public static final ResourceLocation sat_nuclear_base_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/sat_nuclear_base_tex.png");
 	public static final ResourceLocation sat_nuclear_com_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/sat_nuclear_com_tex.png");

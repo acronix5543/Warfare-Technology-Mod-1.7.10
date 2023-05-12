@@ -1,32 +1,47 @@
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.util.EnumChatFormatting
+ */
 package com.wartec.wartecmod.items;
 
-import java.util.List;
-
+import com.wartec.wartecmod.entity.missile.EntityTomahawkMissile;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
-public class ItemTomahawkMissile extends Item {
-	
-	public ItemTomahawkMissile() {
-		setMaxStackSize(1);
-		setUnlocalizedName("ItemTomahawkMissile");
+import java.util.List;
 
-	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		
-		list.add(EnumChatFormatting.BOLD + "Warhead: " + EnumChatFormatting.YELLOW + "HE");
-		list.add(EnumChatFormatting.BOLD + "Strength: " + EnumChatFormatting.GRAY + "25.0");
-		list.add(EnumChatFormatting.BOLD + "Size: " + EnumChatFormatting.GRAY + "6.25m");
-		list.add(EnumChatFormatting.BOLD + "Speed: " + EnumChatFormatting.RED + "Subsonic");
-		list.add(EnumChatFormatting.BOLD + "Propulsion: " + EnumChatFormatting.RED + "Turbojet");
-		list.add(EnumChatFormatting.BOLD + "Size: " + EnumChatFormatting.GRAY + "51.8cm");
-		list.add(EnumChatFormatting.BOLD + "Min. Range: " + EnumChatFormatting.GRAY + "250 Blocks");
-		list.add(EnumChatFormatting.BOLD + "Max. Range: " + EnumChatFormatting.GREEN + "3500 Blocks");
-		list.add(EnumChatFormatting.BOLD + "Health: " + EnumChatFormatting.GREEN + "10.0HP");
+public class ItemTomahawkMissile
+extends Item
+implements IMissileSpawningItem {
 
+    public ItemTomahawkMissile() {
+        this.setMaxStackSize(1);
+        this.setUnlocalizedName("ItemTomahawkMissile");
+    }
+
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+        list.add((Object)EnumChatFormatting.BOLD + "Warhead: " + (Object)EnumChatFormatting.YELLOW + "HE");
+        list.add((Object)EnumChatFormatting.BOLD + "Strength: " + (Object)EnumChatFormatting.GRAY + "25.0");
+        list.add((Object)EnumChatFormatting.BOLD + "Size: " + (Object)EnumChatFormatting.GRAY + "6.25m");
+        list.add((Object)EnumChatFormatting.BOLD + "Speed: " + (Object)EnumChatFormatting.RED + "Subsonic");
+        list.add((Object)EnumChatFormatting.BOLD + "Propulsion: " + (Object)EnumChatFormatting.RED + "Turbojet");
+        list.add((Object)EnumChatFormatting.BOLD + "Size: " + (Object)EnumChatFormatting.GRAY + "51.8cm");
+        list.add((Object)EnumChatFormatting.BOLD + "Min. Range: " + (Object)EnumChatFormatting.GRAY + "250 Blocks");
+        list.add((Object)EnumChatFormatting.BOLD + "Max. Range: " + (Object)EnumChatFormatting.GREEN + "3500 Blocks");
+        list.add((Object)EnumChatFormatting.BOLD + "Health: " + (Object)EnumChatFormatting.GREEN + "10.0HP");
+    }
+
+    @Override
+    public Class<? extends Entity> getMissile() {
+        return EntityTomahawkMissile.class;
+    }
 }
-}
+
