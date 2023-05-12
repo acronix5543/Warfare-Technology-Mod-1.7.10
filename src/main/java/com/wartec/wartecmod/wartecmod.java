@@ -24,6 +24,7 @@ import com.wartec.wartecmod.entity.missile.EntitySatelliteMissileNuclear;
 import com.wartec.wartecmod.entity.missile.EntitySupersonicCruiseMissileHE;
 import com.wartec.wartecmod.entity.missile.EntitySupersonicCruiseMissileH;
 import com.wartec.wartecmod.entity.missile.EntityTomahawkMissile;
+import com.wartec.wartecmod.entity.wartecmodEntities;
 import com.wartec.wartecmod.handler.WartecmodGUIHandler;
 import com.wartec.wartecmod.hazard.wartecHazardRegistry;
 import com.wartec.wartecmod.items.wartecmodItems;
@@ -119,30 +120,8 @@ public class wartecmod {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		PacketRegistry.registerPackets();
-		//Entities
-		EntityRegistry.registerModEntity(EntityMissileSlbm.class, "entity_slbm_Missile", 1, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileHE.class, "entity_Cruise_Missile", 2, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileH.class, "entity_Cruise_Missile_H", 3, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileNuclear.class, "entity_Cruise_Missile_Nuclear", 4, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileTB.class, "entity_Cruise_Missile_FAE", 6, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileCluster.class, "entity_Cruise_Missile_Cluster", 7, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileBuster.class, "entity_Cruise_Missile_Buster", 8, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCruiseMissileEmp.class, "entity_Cruise_Missile_Emp", 9, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityHypersonicCruiseMissileHE.class, "entity_Hypersonic_Cruise_Missile", 10, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityIskanderMissile.class, "entity_Iskander_Missile", 11, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityLrhwMissile.class, "entity_Lrhw_Missile", 12, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntitySupersonicCruiseMissileHE.class, "entity_Supersonic_Cruise_Missile", 13, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityTomahawkMissile.class, "entity_Tomahawk_Missile", 14, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityKalibrMissile.class, "entity_Kalibr_Missile", 15, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntitySupersonicCruiseMissileH.class, "entity_Supersonic_Cruise_Missile_Nuclear", 16, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityHypersonicCruiseMissileNuclear.class, "entity_Hypersonic_Cruise_Missile_H", 17, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityMissileMicroGas.class, "entity_Missile_Micro_Gas", 18, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityMissileMicroNeutron.class, "entity_Missile_Micro_Neutron", 20, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityMissileAntiBallisticNuclear.class, "entity_Missile_Anti_Ballistic_Nuclear", 19, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityMissileAntiAirTier1.class, "entity_Missile_Anti_Air_Tier1", 21, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntityCJ10Missile.class, "entity_CJ10_Missile", 22, this, 1000, 1, true);
-		EntityRegistry.registerModEntity(EntitySatelliteMissileNuclear.class, "entity_Satellite_Missile_Nuclear", 23, this, 1000, 1, true);
-		
+
+		wartecmodEntities.registerAll(this);
 		
 		config = new Configuration(event.getSuggestedConfigurationFile());
 

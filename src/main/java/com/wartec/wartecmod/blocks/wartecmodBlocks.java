@@ -19,6 +19,7 @@ public class wartecmodBlocks {
 	//Missile equipment
 	public static final int guiID_LaunchTube = 1;
 	public static Block LaunchTube;
+	public static Block VlsExhaust;
 	public static final int guiID_BallisticMissileLauncher = 2;
 	public static Block BallisticMissileLauncher;
 	//Blocks
@@ -49,6 +50,7 @@ public class wartecmodBlocks {
 		
 		//Missile Equipment
 		LaunchTube = new com.wartec.wartecmod.blocks.launcher.VerticalLauncher(Material.iron).setBlockName("LaunchTube").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":LaunchTube");
+		VlsExhaust = new com.wartec.wartecmod.blocks.vls.VlsExhaust(Material.iron).setBlockName("VlsExhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":VlsExhaust");
 		BallisticMissileLauncher = new com.wartec.wartecmod.blocks.launcher.BallisticMissileLauncher(Material.iron).setBlockName("BallisticMissileLauncher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":BallisticMissileLauncher");
 		
 		//Blocks
@@ -92,6 +94,7 @@ public class wartecmodBlocks {
 		GameRegistry.registerBlock(decoBlockSatelliteNuclear, "DecoBlockSatelliteNuclear");
 		//Missile equipment
 		GameRegistry.registerBlock(LaunchTube, LaunchTube.getUnlocalizedName());
+		GameRegistry.registerBlock(VlsExhaust, VlsExhaust.getUnlocalizedName());
 		GameRegistry.registerBlock(BallisticMissileLauncher, BallisticMissileLauncher.getUnlocalizedName());
 		//Blocks
 		GameRegistry.registerBlock(BlockArmorSteel, BlockArmorSteel.getUnlocalizedName());

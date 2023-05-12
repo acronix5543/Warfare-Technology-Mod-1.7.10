@@ -68,6 +68,7 @@ public class wartecmodClientProxy extends wartecmodProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDecoBlock.class, new RenderTileEntityDecoBlock());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchTube.class, new RenderTileEntityLaunchTube());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBallisticMissileLauncher.class, new RenderTileEntityBallisticMissileLauncher());
+
          //Entities
     	RenderingRegistry.registerEntityRenderingHandler(EntityCruiseMissileHE.class, new RenderCruiseMissileHE());
     	RenderingRegistry.registerEntityRenderingHandler(EntityCruiseMissileH.class, new RenderCruiseMissileH());

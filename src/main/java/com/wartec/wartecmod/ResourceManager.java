@@ -15,6 +15,7 @@ public class ResourceManager {
 	public static final IModelCustom block_Hypersonic_Cruise_Missile = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_Hypersonic_Cruise_Missile.obj"));
 	public static final IModelCustom block_Flag = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_Flag.obj"));
 	public static final IModelCustom launchTube = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/Launch_Tube.obj"));
+	public static final IModelCustom vlsExhaust = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/vls_exhaust.obj"));
 	public static final IModelCustom BallisticMissileLauncher = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/Ballistic_Missile_Launcher.obj"));
 	public static final IModelCustom block_Satellite_Nuclear_Base = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_nuclear_base.obj"));
 	public static final IModelCustom block_Satellite_Nuclear_Launcher = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_nuclear_launcher.obj"));
