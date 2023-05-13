@@ -27,9 +27,11 @@ publishing {
 	publications {
 		gpr(MavenPublication) {
 			from(components.java)
+			groupId = 'com.wartec'
 		}
 	}
 }
+
 
 apply plugin: 'forge'
 def version_name = version = mod_version
@@ -38,6 +40,9 @@ if(!mod_build_number.isEmpty()) {
 	version = "[${version_name}]"
 }
 group = "com.wartec" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+allprojects {
+	group = "com.wartec"
+}
 archivesBaseName = "WarTec"
 compileJava.options.encoding = 'UTF-8'
 
