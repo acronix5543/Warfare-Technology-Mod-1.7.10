@@ -1,8 +1,7 @@
-package com.wartec.wartecmod.render.tileentity;
+package com.wartec.wartecmod.render.tileentity.vls;
 
 import com.wartec.wartecmod.ResourceManager;
 import com.wartec.wartecmod.blocks.vls.VlsExhaust;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -20,16 +19,16 @@ public class RenderTileEntityVlsExhaust extends TileEntitySpecialRenderer {
         if(core == null)
             return;
 
-        if(!(tem instanceof TileEntityLaunchTube))
+        if(!(tem instanceof TileEntityVlsExhaust))
             return;
 
         TileEntityVlsExhaust te = (TileEntityVlsExhaust) Minecraft.getMinecraft().theWorld.getTileEntity(core[0], core[1], core[2]);
 
         glPushMatrix();
-        glTranslated((x + 0.5), y, (z + 0.5));
+        glTranslated(x + 0.5, y, z + 1);
         glEnable(GL_LIGHTING);
         glDisable(GL_CULL_FACE);
-        this.bindTexture(ResourceManager.launcher_tex);
+        this.bindTexture(ResourceManager.vls_exhaust_tex);
         ResourceManager.vlsExhaust.renderPart("base");
 
         glPushMatrix();

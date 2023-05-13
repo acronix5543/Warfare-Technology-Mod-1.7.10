@@ -28,12 +28,12 @@
  *  net.minecraft.world.World
  *  org.apache.logging.log4j.Level
  */
-package com.wartec.wartecmod.blocks.launcher;
+package com.wartec.wartecmod.blocks.vls;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.handler.MultiblockHandlerXR;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 import com.wartec.wartecmod.wartecmod;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -52,19 +52,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class VerticalLauncher
+public class VlsVerticalLauncher
 		extends BlockDummyable
 {
 	public static boolean keepInventory = false;
 	private static final Random field_149933_a = new Random();
 
-	public VerticalLauncher(Material p_i45386_1_) {
+	public VlsVerticalLauncher(Material p_i45386_1_) {
 		super(p_i45386_1_);
 	}
 
 	public TileEntity createNewTileEntity(World world, int meta) {
 		if(meta >= offset)
-			return new TileEntityLaunchTube();
+			return new TileEntityVlsLaunchTube();
 		return null;
 	}
 
@@ -73,8 +73,8 @@ public class VerticalLauncher
 	}
 
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
-		TileEntityLaunchTube tileentityfurnace;
-		if (!keepInventory && (tileentityfurnace = (TileEntityLaunchTube)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_)) != null) {
+		TileEntityVlsLaunchTube tileentityfurnace;
+		if (!keepInventory && (tileentityfurnace = (TileEntityVlsLaunchTube)p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_)) != null) {
 			for (int i1 = 0; i1 < tileentityfurnace.getSizeInventory(); ++i1) {
 				ItemStack itemstack = tileentityfurnace.getStackInSlot(i1);
 				if (itemstack == null) continue;
@@ -111,7 +111,6 @@ public class VerticalLauncher
 
 			if(pos == null)
 				return false;
-
 			FMLNetworkHandler.openGui(player, wartecmod.instance, 1, world, pos[0], pos[1], pos[2]);
 			return true;
 		} else {
@@ -125,7 +124,7 @@ public class VerticalLauncher
 			int[] pos = this.findCore(world, x, y, z);
 			if(pos == null)
 				return;
-			TileEntityLaunchTube te = (TileEntityLaunchTube) world.getTileEntity(pos[0], pos[1], pos[2]);
+			TileEntityVlsLaunchTube te = (TileEntityVlsLaunchTube) world.getTileEntity(pos[0], pos[1], pos[2]);
 			te.shoot = 50;
 		}
 	}
@@ -159,11 +158,6 @@ public class VerticalLauncher
 
 	private final int height = 10;
 
-	//@Override
-	//public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-	//    return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY + height - 1, z + this.maxZ);
-	//}
-
 	@Override
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, getDimensions(), this, dir);
@@ -190,7 +184,7 @@ public class VerticalLauncher
 		if(pos == null)
 			return 0;
 
-		TileEntityLaunchTube te = (TileEntityLaunchTube) world.getTileEntity(pos[0], pos[1], pos[2]);
+		TileEntityVlsLaunchTube te = (TileEntityVlsLaunchTube) world.getTileEntity(pos[0], pos[1], pos[2]);
 		if(te == null)
 			return 0;
 

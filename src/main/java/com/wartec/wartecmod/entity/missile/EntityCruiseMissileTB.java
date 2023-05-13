@@ -21,6 +21,7 @@ import com.wartec.wartecmod.items.wartecmodItems;
 
 
 import api.hbm.entity.IRadarDetectable.RadarTargetType;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -36,8 +37,8 @@ public class EntityCruiseMissileTB extends EntitySubsonicCruiseMissileBase {
 		super(p_i1582_1_);
 	}
 
-	public EntityCruiseMissileTB(World world, float x, float y, float z, int a, int b) {
-		super(world, x, y, z, a, b);
+	public EntityCruiseMissileTB(World world, float x, float y, float z, int a, int b, TileEntityVlsExhaust exhaust) {
+		super(world, x, y, z, a, b, exhaust);
 		this.isSubsonic = true;
 	}
 	

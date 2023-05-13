@@ -1,6 +1,7 @@
 package com.wartec.wartecmod.blocks;
 
 import com.hbm.blocks.generic.BlockGeneric;
+import com.wartec.wartecmod.blocks.vls.VlsVerticalLauncher;
 import com.wartec.wartecmod.wartecmod;
 import com.wartec.wartecmod.tileentity.deco.TileEntityDecoBlock;
 
@@ -49,7 +50,7 @@ public class wartecmodBlocks {
 	private static void initializeBlock() {
 		
 		//Missile Equipment
-		LaunchTube = new com.wartec.wartecmod.blocks.launcher.VerticalLauncher(Material.iron).setBlockName("LaunchTube").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":LaunchTube");
+		LaunchTube = new VlsVerticalLauncher(Material.iron).setBlockName("LaunchTube").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":LaunchTube");
 		VlsExhaust = new com.wartec.wartecmod.blocks.vls.VlsExhaust(Material.iron).setBlockName("VlsExhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":VlsExhaust");
 		BallisticMissileLauncher = new com.wartec.wartecmod.blocks.launcher.BallisticMissileLauncher(Material.iron).setBlockName("BallisticMissileLauncher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(com.wartec.wartecmod.wartecmod.tabwartecmodcruisemissiles).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":BallisticMissileLauncher");
 		

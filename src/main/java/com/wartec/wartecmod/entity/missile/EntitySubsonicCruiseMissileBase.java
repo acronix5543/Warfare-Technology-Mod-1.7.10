@@ -13,6 +13,7 @@ import com.hbm.packet.PacketDispatcher;
 import com.wartec.wartecmod.entity.logic.ExplosionLargeAdvanced;
 
 import api.hbm.entity.IRadarDetectable;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -48,7 +49,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 	boolean isCluster = false;
     private Ticket loaderTicket;
     public int health = 10;
-   
+    protected TileEntityVlsExhaust exhaust = null;
     
 
 	public EntitySubsonicCruiseMissileBase(World p_i1582_1_) {
@@ -66,7 +67,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
         return true;
     }
     
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    public boolean attackEntityFrom(DamageSource src, float dmg)
     {
         if (this.isEntityInvulnerable())
         {
@@ -76,7 +77,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
         {
             if (!this.isDead && !this.worldObj.isRemote)
             {
-            	health -= p_70097_2_;
+            	health -= dmg;
             	
                 if (this.health <= 0)
                 {
@@ -96,7 +97,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
         ExplosionLarge.spawnMissileDebris(worldObj, posX, posY, posZ, motionX, motionY, motionZ, 0.25, getDebris(), getDebrisRareDrop());
     }
 
-	public EntitySubsonicCruiseMissileBase(World world, float x, float y, float z, int a, int b) {
+	public EntitySubsonicCruiseMissileBase(World world, float x, float y, float z, int a, int b, TileEntityVlsExhaust exh) {
 		super(world);
 		this.ignoreFrustumCheck = true;
 		/*this.posX = x;
@@ -107,6 +108,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 		startZ = (int) z;
 		targetX = a;
 		targetZ = b;
+		this.exhaust = exh;
 		
 
 		
@@ -203,8 +205,23 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 		NBTTagCompound data = new NBTTagCompound();
 		data.setString("type", "exhaust");
 		data.setString("mode", "soyuz");
-		data.setInteger("count", 5);
-		data.setDouble("width", worldObj.rand.nextDouble() *  0.25 - 0.5);
+		if(exhaust == null) {
+			data.setInteger("count", 5);
+			data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.5);
+		} else {
+			data.setInteger("count", 3);
+			data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.8);
+
+			NBTTagCompound vep = new NBTTagCompound();
+			vep.setString("type", "exhaust");
+			vep.setString("mode", "soyuz");
+			vep.setInteger("count", 3);
+			vep.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.8);
+			vep.setDouble("posX", exhaust.xCoord);
+			vep.setDouble("posY", exhaust.yCoord+11);
+			vep.setDouble("posZ", exhaust.zCoord);
+			MainRegistry.proxy.effectNT(vep);
+		}
 		data.setDouble("posX", x);
 		data.setDouble("posY", y);
 		data.setDouble("posZ", z);

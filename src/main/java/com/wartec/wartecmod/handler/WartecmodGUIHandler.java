@@ -1,17 +1,13 @@
 package com.wartec.wartecmod.handler;
 
-import com.hbm.blocks.ModBlocks;
-import com.hbm.inventory.container.ContainerLaunchPadTier1;
-import com.hbm.inventory.gui.GUILaunchPadTier1;
 import com.hbm.tileentity.IGUIProvider;
-import com.hbm.tileentity.bomb.TileEntityLaunchPad;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
 import com.wartec.wartecmod.inventory.container.ContainerBallisticMissileLauncher;
 import com.wartec.wartecmod.inventory.container.ContainerLaunchTube;
 import com.wartec.wartecmod.inventory.gui.GUIBallisticMissileLauncher;
 import com.wartec.wartecmod.inventory.gui.GUILaunchTube;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,8 +32,8 @@ public class WartecmodGUIHandler implements IGuiHandler {
 		
 		switch(ID) {
 	        case wartecmodBlocks.guiID_LaunchTube: {
-			if(entity instanceof TileEntityLaunchTube) {
-				return new ContainerLaunchTube(player.inventory, (TileEntityLaunchTube) entity);
+			if(entity instanceof TileEntityVlsLaunchTube) {
+				return new ContainerLaunchTube(player.inventory, (TileEntityVlsLaunchTube) entity);
 			}
 			return null;
 			
@@ -70,8 +66,8 @@ public class WartecmodGUIHandler implements IGuiHandler {
 		
 		switch(ID) {
             case wartecmodBlocks.guiID_LaunchTube: {
-			if(entity instanceof TileEntityLaunchTube) {
-				return new GUILaunchTube(player.inventory, (TileEntityLaunchTube) entity);
+			if(entity instanceof TileEntityVlsLaunchTube) {
+				return new GUILaunchTube(player.inventory, (TileEntityVlsLaunchTube) entity);
 			}
 			return null;
 			

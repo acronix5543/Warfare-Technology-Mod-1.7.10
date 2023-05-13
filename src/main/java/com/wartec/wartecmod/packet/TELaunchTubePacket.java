@@ -2,7 +2,7 @@ package com.wartec.wartecmod.packet;
 
 import com.hbm.interfaces.Spaghetti;
 import com.wartec.wartecmod.items.wartecmodItems;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -91,9 +91,9 @@ public class TELaunchTubePacket implements IMessage {
 			try {
 				TileEntity te = Minecraft.getMinecraft().theWorld.getTileEntity(m.x, m.y, m.z);
 	
-				if (te != null && te instanceof TileEntityLaunchTube) {
+				if (te != null && te instanceof TileEntityVlsLaunchTube) {
 						
-					TileEntityLaunchTube gen = (TileEntityLaunchTube)te;
+					TileEntityVlsLaunchTube gen = (TileEntityVlsLaunchTube)te;
 					gen.state = m.type;
 					gen.openingAnimation = m.openingAnimation;
 				}

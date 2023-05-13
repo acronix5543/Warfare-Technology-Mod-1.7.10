@@ -2,12 +2,9 @@ package com.wartec.wartecmod.inventory.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.hbm.inventory.container.ContainerLaunchPadTier1;
 import com.hbm.inventory.gui.GuiInfoContainer;
-import com.hbm.lib.RefStrings;
-import com.hbm.tileentity.bomb.TileEntityLaunchPad;
 import com.wartec.wartecmod.inventory.container.ContainerLaunchTube;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
@@ -17,9 +14,9 @@ import net.minecraft.util.ResourceLocation;
 public class GUILaunchTube extends GuiInfoContainer {
 	
 	private static ResourceLocation texture = new ResourceLocation(com.wartec.wartecmod.lib.RefStrings.MODID + ":textures/gui/weapon/gui_launch_tube.png");
-	private TileEntityLaunchTube diFurnace;
+	private TileEntityVlsLaunchTube diFurnace;
 
-	public GUILaunchTube(InventoryPlayer invPlayer, TileEntityLaunchTube tedf) {
+	public GUILaunchTube(InventoryPlayer invPlayer, TileEntityVlsLaunchTube tedf) {
 		super(new ContainerLaunchTube(invPlayer, tedf));
 		diFurnace = tedf;
 		

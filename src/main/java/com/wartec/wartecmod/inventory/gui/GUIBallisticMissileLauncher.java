@@ -4,9 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.inventory.gui.GuiInfoContainer;
 import com.wartec.wartecmod.inventory.container.ContainerBallisticMissileLauncher;
-import com.wartec.wartecmod.inventory.container.ContainerLaunchTube;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;

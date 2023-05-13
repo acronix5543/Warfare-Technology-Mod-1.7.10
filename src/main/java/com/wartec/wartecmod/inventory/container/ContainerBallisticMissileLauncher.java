@@ -1,7 +1,6 @@
 package com.wartec.wartecmod.inventory.container;
 
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

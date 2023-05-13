@@ -1,7 +1,6 @@
 package com.wartec.wartecmod.inventory.container;
 
-import com.hbm.tileentity.bomb.TileEntityLaunchPad;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -12,9 +11,9 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerLaunchTube extends Container {
 	
-	private TileEntityLaunchTube diFurnace;
+	private TileEntityVlsLaunchTube diFurnace;
 	
-	public ContainerLaunchTube(InventoryPlayer invPlayer, TileEntityLaunchTube tedf) {
+	public ContainerLaunchTube(InventoryPlayer invPlayer, TileEntityVlsLaunchTube tedf) {
 		
 		diFurnace = tedf;
 		

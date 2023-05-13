@@ -11,6 +11,7 @@ import com.wartec.wartecmod.entity.logic.ExplosionLargeAdvanced;
 import com.wartec.wartecmod.items.wartecmodItems;
 
 import api.hbm.entity.IRadarDetectable.RadarTargetType;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -20,8 +21,8 @@ public class EntityTomahawkMissile extends EntitySubsonicCruiseMissileBase {
 		super(p_i1582_1_);
 	}
 
-	public EntityTomahawkMissile(World world, float x, float y, float z, int a, int b) {
-		super(world, x, y, z, a, b);
+	public EntityTomahawkMissile(World world, float x, float y, float z, int a, int b, TileEntityVlsExhaust exhaust) {
+		super(world, x, y, z, a, b, exhaust);
 		this.isSubsonic = true;
 	}
 

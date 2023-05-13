@@ -20,7 +20,7 @@
  *  net.minecraft.util.AxisAlignedBB
  *  net.minecraftforge.common.util.ForgeDirection
  */
-package com.wartec.wartecmod.tileentity.launcher;
+package com.wartec.wartecmod.tileentity.vls;
 
 import api.hbm.energy.IEnergyUser;
 import api.hbm.item.IDesignatorItem;
@@ -33,10 +33,10 @@ import com.hbm.items.ModItems;
 import com.hbm.lib.Library;
 import com.hbm.main.MainRegistry;
 import com.hbm.packet.AuxElectricityPacket;
-import com.hbm.packet.NBTPacket;
 import com.hbm.packet.PacketDispatcher;
-import com.hbm.tileentity.INBTPacketReceiver;
 import com.hbm.tileentity.TileEntityLoadedBase;
+import com.wartec.wartecmod.blocks.vls.VlsExhaust;
+import com.wartec.wartecmod.blocks.vls.VlsVerticalLauncher;
 import com.wartec.wartecmod.entity.missile.EntityMissileAntiAirTier1;
 import com.wartec.wartecmod.entity.missile.EntityMissileAntiBallisticNuclear;
 import com.wartec.wartecmod.items.IMissileSpawningItem;
@@ -46,6 +46,7 @@ import com.wartec.wartecmod.packet.TELaunchTubePacket;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -60,8 +61,11 @@ import net.minecraftforge.common.util.ForgeDirection;
 import org.apache.logging.log4j.Level;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class TileEntityLaunchTube
+public class TileEntityVlsLaunchTube
 		extends TileEntityLoadedBase
 		implements ISidedInventory,
 		IBomb,
@@ -218,24 +222,39 @@ public class TileEntityLaunchTube
 		return this.power * i / 100000L;
 	}
 
+	private TileEntityVlsExhaust exhaust = null;
+	private int exhaustSearchDelay = 0;
+
 	@Override
 	public void updateEntity() {
 		if (!this.worldObj.isRemote) {
+			if(exhaustSearchDelay <= 0) {
+				exhaust = findExhaust();
+				exhaustSearchDelay = 20;
+			}
+			exhaustSearchDelay--;
+
 			if(open && openingAnimation < 90)
 				openingAnimation += 3;
 			if( !open && openingAnimation > 0)
 				openingAnimation -= 3;
 
-			if(shoot == 50)
+			if(shoot == 50) {
 				open = true;
+				if(exhaust != null)
+					exhaust.open = true;
+			}
 			if(openingAnimation >= 86 && shoot == 50) {
 				this.explode(this.worldObj, xCoord, yCoord, zCoord);
 				shoot--;
 			}
 			if(shoot > 0 && shoot < 50)
 				shoot--;
-			if(shoot == 0)
+			if(shoot == 0) {
 				open = false;
+				if(exhaust != null)
+					exhaust.open = false;
+			}
 
 			this.power = Library.chargeTEFromItems(this.slots, 2, this.power, 100000L);
 			this.updateConnections();
@@ -294,9 +313,99 @@ public class TileEntityLaunchTube
 		return 65536.0;
 	}
 
+	private int[] findNearesExhaust() {
+		int[] pos = new int[] {xCoord, zCoord};
+
+		List<int[]> visited = new ArrayList<>();
+		visited.add(pos);
+
+		return getNeighbors(pos, 10, visited);
+	}
+
+	private int[] getNeighbors(int[] pos, int maxit, List<int[]> visited) {
+		if(maxit <= 0)
+			return null;
+
+		Block neighbor;
+		int[] p;
+
+		neighbor = worldObj.getBlock(pos[0], yCoord, pos[1] - 1);
+		p = new int[] {pos[0], pos[1]-1};
+		if(!visited.contains(p)) {
+			visited.add(p);
+			if (neighbor instanceof VlsExhaust) {
+				return p;
+			}
+			if (neighbor instanceof VlsVerticalLauncher) {
+				int[] s = getNeighbors(p, maxit - 1, visited);
+				if (s != null) {
+					return s;
+				}
+			}
+		}
+
+		neighbor = worldObj.getBlock(pos[0], yCoord, pos[1] + 1);
+		p = new int[] {pos[0], pos[1]+1};
+		if(!visited.contains(p)) {
+			visited.add(p);
+			if (neighbor instanceof VlsExhaust) {
+				return p;
+			}
+			if (neighbor instanceof VlsVerticalLauncher) {
+				int[] s = getNeighbors(p, maxit - 1, visited);
+				if (s != null) {
+					return s;
+				}
+			}
+		}
+
+		neighbor = worldObj.getBlock(pos[0] - 1, yCoord, pos[1]);
+		p = new int[] {pos[0]-1, pos[1]};
+		if(!visited.contains(p)) {
+			visited.add(p);
+			if (neighbor instanceof VlsExhaust) {
+				return p;
+			}
+			if (neighbor instanceof VlsVerticalLauncher) {
+				int[] s = getNeighbors(p, maxit - 1, visited);
+				if (s != null) {
+					return s;
+				}
+			}
+		}
+
+		neighbor = worldObj.getBlock(pos[0] + 1, yCoord, pos[1]);
+		p = new int[] {pos[0]+1, pos[1]};
+		if(!visited.contains(p)) {
+			visited.add(p);
+			if (neighbor instanceof VlsExhaust) {
+				return p;
+			}
+			if (neighbor instanceof VlsVerticalLauncher) {
+				return getNeighbors(p, maxit - 1, visited);
+			}
+		}
+
+		return null;
+	}
+
+	public TileEntityVlsExhaust findExhaust() {
+		int[] exh = findNearesExhaust();
+		if(exh != null) {
+			Block b = worldObj.getBlock(exh[0], yCoord, exh[1]);
+			if(b instanceof VlsExhaust) {
+				VlsExhaust exhaust = (VlsExhaust) b;
+				int[] c = exhaust.findCore(worldObj, exh[0], yCoord, exh[1]);
+				return (TileEntityVlsExhaust) worldObj.getTileEntity(c[0], c[1], c[2]);
+			}
+			return null;
+		}
+		return null;
+	}
+
 	@Spaghetti(value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA *takes breath* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	public IBomb.BombReturnCode explode(World world, int x, int y, int z) {
-		TileEntityLaunchTube entity = (TileEntityLaunchTube)world.getTileEntity(x, y, z);
+		TileEntityVlsLaunchTube entity = (TileEntityVlsLaunchTube)world.getTileEntity(x, y, z);
 		if (entity.slots[0] == null || world.isRemote) {
 			return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
 		}
@@ -313,12 +422,18 @@ public class TileEntityLaunchTube
 				Class<? extends Entity> missile = ((IMissileSpawningItem) entity.slots[0].getItem()).getMissile();
 				Entity missileEntity;
 				try {
-					Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class);
-					missileEntity = (Entity) constructor.newInstance(world, (float)x + 0.5f, (float)y + 11.0f, (float)z + 0.5f, xCoord, zCoord);
+					TileEntityVlsExhaust exhaust = findExhaust();
+
+					Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class, TileEntityVlsExhaust.class);
+					missileEntity = (Entity) constructor.newInstance(world, (float)x + 0.5f, (float)y + 11.0f, (float)z + 0.5f, xCoord, zCoord, exhaust);
 
 					world.spawnEntityInWorld(missileEntity);
-					world.playSoundEffect((double)x, (double)(y + 10), (double)z, "wartecmod:weapon.CruiseMissileTakeoff", 10.0f, 1.0f);
-					ExplosionLarge.spawnParticles((World)world, (double)x, (double)((float)y + 11.0f), (double)z, (int)5);
+					world.playSoundEffect(x, y + 10, z, "wartecmod:weapon.CruiseMissileTakeoff", 10.0f, 1.0f);
+
+					if(exhaust == null) {
+						ExplosionLarge.spawnParticles(world, x, y + 11.0f, z, 5);
+					}
+
 					entity.power -= 50000L;
 					entity.slots[0] = null;
 					if (GeneralConfig.enableExtendedLogging) {

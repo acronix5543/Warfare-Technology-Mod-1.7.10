@@ -7,9 +7,11 @@ import com.wartec.wartecmod.render.entity.missile.*;
 import com.wartec.wartecmod.render.item.*;
 import com.wartec.wartecmod.render.tileentity.RenderTileEntityBallisticMissileLauncher;
 import com.wartec.wartecmod.render.tileentity.*;
+import com.wartec.wartecmod.render.tileentity.vls.RenderTileEntityVlsLaunchTube;
+import com.wartec.wartecmod.render.tileentity.vls.RenderTileEntityVlsExhaust;
 import com.wartec.wartecmod.tileentity.deco.TileEntityDecoBlock;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 
 
 import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
@@ -23,7 +25,7 @@ public class wartecmodClientProxy extends wartecmodProxy {
 	public void registerRenderers() {
 		//TE
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDecoBlock.class, new RenderTileEntityDecoBlock());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchTube.class, new RenderTileEntityLaunchTube());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVlsLaunchTube.class, new RenderTileEntityVlsLaunchTube());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityVlsExhaust.class, new RenderTileEntityVlsExhaust());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBallisticMissileLauncher.class, new RenderTileEntityBallisticMissileLauncher());
 

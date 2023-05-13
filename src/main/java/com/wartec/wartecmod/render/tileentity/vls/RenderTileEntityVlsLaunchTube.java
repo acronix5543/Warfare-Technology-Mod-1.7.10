@@ -6,31 +6,31 @@
  *  net.minecraft.tileentity.TileEntity
  *  org.lwjgl.opengl.GL11
  */
-package com.wartec.wartecmod.render.tileentity;
+package com.wartec.wartecmod.render.tileentity.vls;
 
 import com.wartec.wartecmod.ResourceManager;
-import com.wartec.wartecmod.blocks.launcher.VerticalLauncher;
-import com.wartec.wartecmod.tileentity.launcher.TileEntityLaunchTube;
+import com.wartec.wartecmod.blocks.vls.VlsVerticalLauncher;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsLaunchTube;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import static org.lwjgl.opengl.GL11.*;
 
-public class RenderTileEntityLaunchTube
+public class RenderTileEntityVlsLaunchTube
 		extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tem, double x, double y, double z, float f) {
-		VerticalLauncher block = (VerticalLauncher) tem.getBlockType();
+		VlsVerticalLauncher block = (VlsVerticalLauncher) tem.getBlockType();
 
 		final int[] core = block.findCore(Minecraft.getMinecraft().theWorld.provider.worldObj, tem.xCoord, tem.yCoord, tem.zCoord);
 		if(core == null)
 			return;
 
-		if(!(tem instanceof TileEntityLaunchTube))
+		if(!(tem instanceof TileEntityVlsLaunchTube))
 			return;
 
-		TileEntityLaunchTube te = (TileEntityLaunchTube) Minecraft.getMinecraft().theWorld.getTileEntity(core[0], core[1], core[2]);
+		TileEntityVlsLaunchTube te = (TileEntityVlsLaunchTube) Minecraft.getMinecraft().theWorld.getTileEntity(core[0], core[1], core[2]);
 
 		glPushMatrix();
 		glTranslated((x + 0.5), y, (z + 0.5));
