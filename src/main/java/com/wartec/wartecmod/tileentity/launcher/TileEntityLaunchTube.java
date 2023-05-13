@@ -65,8 +65,7 @@ public class TileEntityLaunchTube
 		extends TileEntityLoadedBase
 		implements ISidedInventory,
 		IBomb,
-		IEnergyUser,
-		INBTPacketReceiver {
+		IEnergyUser {
 	public ItemStack[] slots = new ItemStack[3];
 	public long power;
 	private static final int[] slots_top = new int[]{0};
@@ -240,17 +239,9 @@ public class TileEntityLaunchTube
 
 			this.power = Library.chargeTEFromItems(this.slots, 2, this.power, 100000L);
 			this.updateConnections();
-			PacketRegistry.wrapper.sendToAllAround(new TELaunchTubePacket(this.xCoord, this.yCoord, this.zCoord, this.slots[0]), new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, (double)this.xCoord, (double)this.yCoord, (double)this.zCoord, 250.0));
+			PacketRegistry.wrapper.sendToAllAround(new TELaunchTubePacket(this.xCoord, this.yCoord, this.zCoord, this.slots[0], openingAnimation), new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, (double)this.xCoord, (double)this.yCoord, (double)this.zCoord, 250.0));
 			PacketDispatcher.wrapper.sendToAllAround(new AuxElectricityPacket(this.xCoord, this.yCoord, this.zCoord, this.power), new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, (double)this.xCoord, (double)this.yCoord, (double)this.zCoord, 50.0));
-
-			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setInteger("openanim", openingAnimation);
-			PacketDispatcher.wrapper.sendToAllAround(new NBTPacket(nbt, xCoord, yCoord, zCoord), new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, xCoord, yCoord, zCoord, 50));
 		}
-	}
-
-	public void networkUnpack(NBTTagCompound data) {
-		openingAnimation = data.getInteger("openanim");
 	}
 
 	private void updateConnections() {

@@ -18,15 +18,17 @@ public class TELaunchTubePacket implements IMessage {
 	int y;
 	int z;
 	int type;
+	int openingAnimation;
 
 	public TELaunchTubePacket() { }
 
 	@Spaghetti("die")
-	public TELaunchTubePacket(int x, int y, int z, ItemStack stack) {
+	public TELaunchTubePacket(int x, int y, int z, ItemStack stack, int openingAnimation) {
 		
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.openingAnimation = openingAnimation;
 		this.type = 0;
 		if(stack != null) {
 			if(stack.getItem() == wartecmodItems.itemCruiseMissileHe)
@@ -69,6 +71,7 @@ public class TELaunchTubePacket implements IMessage {
 		y = buf.readInt();
 		z = buf.readInt();
 		type = buf.readInt();
+		openingAnimation = buf.readInt();
 	}
 
 	@Override
@@ -77,6 +80,7 @@ public class TELaunchTubePacket implements IMessage {
 		buf.writeInt(y);
 		buf.writeInt(z);
 		buf.writeInt(type);
+		buf.writeInt(openingAnimation);
 	}
 
 	public static class Handler implements IMessageHandler<TELaunchTubePacket, IMessage> {
@@ -91,8 +95,9 @@ public class TELaunchTubePacket implements IMessage {
 						
 					TileEntityLaunchTube gen = (TileEntityLaunchTube)te;
 					gen.state = m.type;
+					gen.openingAnimation = m.openingAnimation;
 				}
-			} catch(Exception e) { }
+			} catch(Exception ignored) { }
 			
 			return null;
 		}
