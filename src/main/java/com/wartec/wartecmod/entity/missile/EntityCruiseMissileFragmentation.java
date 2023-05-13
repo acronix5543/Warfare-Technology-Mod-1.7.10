@@ -36,7 +36,7 @@ public class EntityCruiseMissileFragmentation extends EntitySubsonicCruiseMissil
 	public void onImpact() {
 		//ExplosionLarge.explode(worldObj, posX, posY, posZ, 20.0F, true, true, true);
 		ExplosionLargeAdvanced explosionLargeAdvanced = new ExplosionLargeAdvanced();
-		explosionLargeAdvanced.ExplosionAdvanced(worldObj, posX, posY, posZ, 20F, 12F, false);
+		explosionLargeAdvanced.ExplosionAdvanced(worldObj, posX, posY, posZ, 20F, 2F, false);
 	}
 
 	@Override

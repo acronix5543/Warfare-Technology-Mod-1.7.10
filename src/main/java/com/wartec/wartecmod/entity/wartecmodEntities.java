@@ -29,6 +29,7 @@ public class wartecmodEntities {
         EntityRegistry.registerModEntity(EntityMissileAntiAirTier1.class, "entity_Missile_Anti_Air_Tier1", 21, mod, 1000, 1, true);
         EntityRegistry.registerModEntity(EntityCJ10Missile.class, "entity_CJ10_Missile", 22, mod, 1000, 1, true);
         EntityRegistry.registerModEntity(EntitySatelliteMissileNuclear.class, "entity_Satellite_Missile_Nuclear", 23, mod, 1000, 1, true);
+        EntityRegistry.registerModEntity(EntityCruiseMissileFragmentation.class, "entity_Cruise_Missile_Fragmentation", 24, mod, 1000, 1, true);
 
     }
     

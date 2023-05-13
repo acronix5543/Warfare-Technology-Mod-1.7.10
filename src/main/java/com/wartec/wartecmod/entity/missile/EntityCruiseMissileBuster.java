@@ -34,7 +34,7 @@ public class EntityCruiseMissileBuster extends EntitySubsonicCruiseMissileBase {
 				this.worldObj.createExplosion(this, this.posX, this.posY+1 - i, this.posZ, 0.5F, true);
 			}
 			ExplosionLargeAdvanced explosionLargeAdvanced = new ExplosionLargeAdvanced();
-			explosionLargeAdvanced.ExplosionAdvanced(worldObj, posX, posY-15, posZ, 35F, 12F, true);
+			explosionLargeAdvanced.ExplosionAdvanced(worldObj, posX, posY-15, posZ, 20F, 2F, true);
 		}
 		
 
