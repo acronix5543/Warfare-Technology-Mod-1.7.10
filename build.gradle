@@ -26,8 +26,11 @@ publishing {
 	}
 	publications {
 		gpr(MavenPublication) {
-			from(components.java)
 			groupId = 'com.wartec'
+			artifactId = 'WarTecMod'
+			version = mod_version
+
+			artifact(file('build/libs/WarTec-1.0.0.jar'))
 		}
 	}
 }
