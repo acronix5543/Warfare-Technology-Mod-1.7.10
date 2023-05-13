@@ -230,7 +230,7 @@ public class TileEntityVlsLaunchTube
 		if (!this.worldObj.isRemote) {
 			if(exhaustSearchDelay <= 0) {
 				exhaust = findExhaust();
-				exhaustSearchDelay = 20;
+				exhaustSearchDelay = 80;
 			}
 			exhaustSearchDelay--;
 
@@ -424,8 +424,14 @@ public class TileEntityVlsLaunchTube
 				try {
 					TileEntityVlsExhaust exhaust = findExhaust();
 
-					Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class, TileEntityVlsExhaust.class);
-					missileEntity = (Entity) constructor.newInstance(world, (float)x + 0.5f, (float)y + 11.0f, (float)z + 0.5f, xCoord, zCoord, exhaust);
+					try {
+						Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class, TileEntityVlsExhaust.class);
+						missileEntity = (Entity) constructor.newInstance(world, (float) x + 0.5f, (float) y + 11.0f, (float) z + 0.5f, xCoord, zCoord, exhaust);
+					} catch (Exception e) {
+						// old constructor ~~(definetifly wasnt too lazy to update everything)~~
+						Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class);
+						missileEntity = (Entity) constructor.newInstance(world, (float) x + 0.5f, (float) y + 11.0f, (float) z + 0.5f, xCoord, zCoord);
+					}
 
 					world.spawnEntityInWorld(missileEntity);
 					world.playSoundEffect(x, y + 10, z, "wartecmod:weapon.CruiseMissileTakeoff", 10.0f, 1.0f);

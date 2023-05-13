@@ -209,13 +209,13 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 			data.setInteger("count", 5);
 			data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.5);
 		} else {
-			data.setInteger("count", 3);
+			data.setInteger("count", 2);
 			data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.8);
 
 			NBTTagCompound vep = new NBTTagCompound();
 			vep.setString("type", "exhaust");
 			vep.setString("mode", "soyuz");
-			vep.setInteger("count", 3);
+			vep.setInteger("count", 1);
 			vep.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.8);
 			vep.setDouble("posX", exhaust.xCoord);
 			vep.setDouble("posY", exhaust.yCoord+11);
