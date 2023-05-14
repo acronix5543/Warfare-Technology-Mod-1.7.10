@@ -30,8 +30,8 @@ public class TileEntityVlsExhaust
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
 
-        nbt.setInteger("openanim",openingAnimation);
-        nbt.setBoolean("open",open);
+        nbt.setInteger("openanim", openingAnimation);
+        nbt.setBoolean("open", open);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class TileEntityVlsExhaust
         if (!this.worldObj.isRemote) {
             if(open && openingAnimation < 90)
                 openingAnimation += 3;
-            if( !open && openingAnimation > 0)
+            if(!open && openingAnimation > 0)
                 openingAnimation -= 3;
 
             NBTTagCompound nbt = new NBTTagCompound();

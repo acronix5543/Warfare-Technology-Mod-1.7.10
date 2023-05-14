@@ -230,7 +230,7 @@ public class TileEntityVlsLaunchTube
 		if (!this.worldObj.isRemote) {
 			if(exhaustSearchDelay <= 0) {
 				exhaust = findExhaust();
-				exhaustSearchDelay = 80;
+				exhaustSearchDelay = 90;
 			}
 			exhaustSearchDelay--;
 
@@ -319,7 +319,7 @@ public class TileEntityVlsLaunchTube
 		List<int[]> visited = new ArrayList<>();
 		visited.add(pos);
 
-		return getNeighbors(pos, 10, visited);
+		return getNeighbors(pos, 30, visited);
 	}
 
 	private int[] getNeighbors(int[] pos, int maxit, List<int[]> visited) {
@@ -331,7 +331,7 @@ public class TileEntityVlsLaunchTube
 
 		neighbor = worldObj.getBlock(pos[0], yCoord, pos[1] - 1);
 		p = new int[] {pos[0], pos[1]-1};
-		if(!visited.contains(p)) {
+		//if(!visited.contains(p)) {
 			visited.add(p);
 			if (neighbor instanceof VlsExhaust) {
 				return p;
@@ -342,11 +342,11 @@ public class TileEntityVlsLaunchTube
 					return s;
 				}
 			}
-		}
+		//}
 
 		neighbor = worldObj.getBlock(pos[0], yCoord, pos[1] + 1);
 		p = new int[] {pos[0], pos[1]+1};
-		if(!visited.contains(p)) {
+		//if(!visited.contains(p)) {
 			visited.add(p);
 			if (neighbor instanceof VlsExhaust) {
 				return p;
@@ -357,11 +357,11 @@ public class TileEntityVlsLaunchTube
 					return s;
 				}
 			}
-		}
+		//}
 
 		neighbor = worldObj.getBlock(pos[0] - 1, yCoord, pos[1]);
 		p = new int[] {pos[0]-1, pos[1]};
-		if(!visited.contains(p)) {
+		//if(!visited.contains(p)) {
 			visited.add(p);
 			if (neighbor instanceof VlsExhaust) {
 				return p;
@@ -372,11 +372,11 @@ public class TileEntityVlsLaunchTube
 					return s;
 				}
 			}
-		}
+		//}
 
 		neighbor = worldObj.getBlock(pos[0] + 1, yCoord, pos[1]);
 		p = new int[] {pos[0]+1, pos[1]};
-		if(!visited.contains(p)) {
+		//if(!visited.contains(p)) {
 			visited.add(p);
 			if (neighbor instanceof VlsExhaust) {
 				return p;
@@ -384,13 +384,14 @@ public class TileEntityVlsLaunchTube
 			if (neighbor instanceof VlsVerticalLauncher) {
 				return getNeighbors(p, maxit - 1, visited);
 			}
-		}
+		//}
 
 		return null;
 	}
 
 	public TileEntityVlsExhaust findExhaust() {
 		int[] exh = findNearesExhaust();
+		System.out.println(Arrays.toString(exh));
 		if(exh != null) {
 			Block b = worldObj.getBlock(exh[0], yCoord, exh[1]);
 			if(b instanceof VlsExhaust) {
