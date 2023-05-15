@@ -2,6 +2,7 @@ package com.wartec.wartecmod.render.tileentity.vls;
 
 import com.wartec.wartecmod.ResourceManager;
 import com.wartec.wartecmod.blocks.vls.VlsExhaust;
+import com.wartec.wartecmod.blocks.vls.VlsVerticalLauncher;
 import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -13,6 +14,8 @@ public class RenderTileEntityVlsExhaust extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity tem, double x, double y, double z, float f) {
+        if(!(tem.getBlockType() instanceof VlsExhaust))
+            return;
         VlsExhaust block = (VlsExhaust) tem.getBlockType();
 
         final int[] core = block.findCore(Minecraft.getMinecraft().theWorld.provider.worldObj, tem.xCoord, tem.yCoord, tem.zCoord);

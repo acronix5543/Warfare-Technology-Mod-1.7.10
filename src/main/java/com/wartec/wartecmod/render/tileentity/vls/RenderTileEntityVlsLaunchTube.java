@@ -21,6 +21,8 @@ public class RenderTileEntityVlsLaunchTube
 
 	@Override
 	public void renderTileEntityAt(TileEntity tem, double x, double y, double z, float f) {
+		if(!(tem.getBlockType() instanceof VlsVerticalLauncher))
+			return;
 		VlsVerticalLauncher block = (VlsVerticalLauncher) tem.getBlockType();
 
 		final int[] core = block.findCore(Minecraft.getMinecraft().theWorld.provider.worldObj, tem.xCoord, tem.yCoord, tem.zCoord);
