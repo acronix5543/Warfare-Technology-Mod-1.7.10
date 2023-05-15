@@ -3,6 +3,7 @@ package com.wartec.wartecmod.entity.missile;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.hbm.entity.ITurretTargetable;
 import com.hbm.entity.logic.IChunkLoader;
 import com.hbm.entity.missile.EntityBooster;
 import com.hbm.entity.particle.EntitySmokeFX;
@@ -28,7 +29,7 @@ import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
-public abstract class EntityHypersonicCruiseMissileBase extends Entity implements IChunkLoader, IRadarDetectable {
+public abstract class EntityHypersonicCruiseMissileBase extends Entity implements IChunkLoader, IRadarDetectable, ITurretTargetable {
 	
 	int startX;
 	int startY;
@@ -262,7 +263,7 @@ public abstract class EntityHypersonicCruiseMissileBase extends Entity implement
 	        }
 	        
 	        
-	        //3. Bedingungen für Transformation
+	        //3. Bedingungen fï¿½r Transformation
 	        if(this.positionvectorCruise < this.transformationpointvector && this.dataWatcher.getWatchableObjectInt(9) == 1 && !this.worldObj.isRemote) {//this.ticksExisted > 5
 	        	this.spawnExhaust(posX - vector.xCoord * i, (posY+1) - vector.yCoord * i, posZ - vector.zCoord * i);
 	        }

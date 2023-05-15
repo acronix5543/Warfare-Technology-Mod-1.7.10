@@ -3,6 +3,7 @@ package com.wartec.wartecmod.entity.missile;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.hbm.entity.ITurretTargetable;
 import com.hbm.entity.logic.IChunkLoader;
 import com.hbm.entity.missile.EntityBooster;
 import com.hbm.entity.particle.EntitySmokeFX;
@@ -28,7 +29,7 @@ import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
-public abstract class EntityGlideWeaponBase extends Entity implements IChunkLoader, IRadarDetectable {
+public abstract class EntityGlideWeaponBase extends Entity implements IChunkLoader, IRadarDetectable, ITurretTargetable {
 	
 	int tickshalfOfLifespan;
 	int startX;

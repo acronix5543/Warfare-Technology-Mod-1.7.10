@@ -3,6 +3,7 @@ package com.wartec.wartecmod.entity.missile;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.hbm.entity.ITurretTargetable;
 import com.hbm.entity.logic.IChunkLoader;
 import com.hbm.explosion.ExplosionLarge;
 import com.hbm.main.MainRegistry;
@@ -26,7 +27,7 @@ import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
-public abstract class EntityBallisticMissileBase extends Entity implements IChunkLoader, IRadarDetectable {
+public abstract class EntityBallisticMissileBase extends Entity implements IChunkLoader, IRadarDetectable, ITurretTargetable {
 	
 	int startX;
 	int startZ;

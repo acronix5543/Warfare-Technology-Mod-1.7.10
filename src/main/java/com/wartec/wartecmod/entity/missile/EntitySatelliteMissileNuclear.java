@@ -1,5 +1,6 @@
 package com.wartec.wartecmod.entity.missile;
 
+import api.hbm.entity.ITurretTargetable;
 import com.hbm.config.BombConfig;
 import com.hbm.entity.effect.EntityCloudTom;
 import com.hbm.entity.effect.EntityNukeCloudSmall;
@@ -20,7 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntitySatelliteMissileNuclear extends Entity {
+public class EntitySatelliteMissileNuclear extends Entity implements ITurretTargetable {
 
 	public EntitySatelliteMissileNuclear(World p_i1582_1_) {
 		super(p_i1582_1_);
