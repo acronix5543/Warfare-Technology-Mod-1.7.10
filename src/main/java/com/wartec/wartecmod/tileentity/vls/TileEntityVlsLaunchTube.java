@@ -68,7 +68,6 @@ import java.util.List;
 public class TileEntityVlsLaunchTube
 		extends TileEntityLoadedBase
 		implements ISidedInventory,
-		IBomb,
 		IEnergyUser {
 	public ItemStack[] slots = new ItemStack[3];
 	public long power;
@@ -245,7 +244,7 @@ public class TileEntityVlsLaunchTube
 					exhaust.open = true;
 			}
 			if(openingAnimation >= 86 && shoot == 50) {
-				this.explode(this.worldObj, xCoord, yCoord, zCoord);
+				this.shoot(this.worldObj, xCoord, yCoord, zCoord);
 				shoot--;
 			}
 			if(shoot > 0 && shoot < 50)
@@ -405,7 +404,7 @@ public class TileEntityVlsLaunchTube
 	}
 
 	@Spaghetti(value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA *takes breath* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-	public IBomb.BombReturnCode explode(World world, int x, int y, int z) {
+	public IBomb.BombReturnCode shoot(World world, int x, int y, int z) {
 		TileEntityVlsLaunchTube entity = (TileEntityVlsLaunchTube)world.getTileEntity(x, y, z);
 		if (entity.slots[0] == null || world.isRemote) {
 			return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
