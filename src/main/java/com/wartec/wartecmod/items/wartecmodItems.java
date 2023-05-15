@@ -11,7 +11,7 @@ package com.wartec.wartecmod.items;
 
 import com.hbm.items.machine.ItemSatChip;
 import com.wartec.wartecmod.entity.missile.*;
-import com.wartec.wartecmod.items.tool.ItemTargetFinder;
+import com.wartec.wartecmod.items.tool.*;
 import com.wartec.wartecmod.wartecmod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
@@ -73,6 +73,7 @@ public class wartecmodItems {
     public static Item itemMincedMeatRaw;
     public static Item itemMincedMeatCooked;
     public static Item itemTargetFinder;
+    public static Item itemMissileStrikeCaller;
 
     public static void Items() {
         wartecmodItems.initializeItem();
@@ -135,6 +136,7 @@ public class wartecmodItems {
         sat_nuclear = new ItemSatChip().setUnlocalizedName("sat_nuclear").setMaxStackSize(1).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemSatelliteNuclear");
         sat_emp = new ItemSatChip().setUnlocalizedName("sat_emp").setMaxStackSize(1).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("hbm:sat_mapper");
         itemTargetFinder = new ItemTargetFinder().setUnlocalizedName("ItemTargetFinder").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemTargetFinder");
+        itemMissileStrikeCaller = new ItemMissileStrikeCaller().setUnlocalizedName("ItemMissileStrikeCaller").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemMissileStrikeCaller");
     }
 
     private static void registerItem() {
@@ -192,6 +194,7 @@ public class wartecmodItems {
         GameRegistry.registerItem(sat_nuclear, (String)sat_nuclear.getUnlocalizedName());
         GameRegistry.registerItem(sat_emp, (String)sat_emp.getUnlocalizedName());
         GameRegistry.registerItem(itemTargetFinder, (String)itemTargetFinder.getUnlocalizedName());
+        GameRegistry.registerItem(itemMissileStrikeCaller, itemMissileStrikeCaller.getUnlocalizedName());
     }
 }
 

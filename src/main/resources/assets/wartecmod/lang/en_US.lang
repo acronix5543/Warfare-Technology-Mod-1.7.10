@@ -28,6 +28,8 @@ item.IngotArmorSteel.name=Armor Steel Ingot
 item.ItemMincedMeatRaw.name=Raw Minced Meat
 item.ItemMincedMeatCooked.name=Fried Minced Meat
 item.sat_nuclear.name=H.A.D.E.S - Satellite based Thermonuclear Weapon System
+item.ItemMissileStrikeCaller.name=VLS-demonstrating-tool
+item.ItemTargetFinder.name=Target selector
 # Missile Items
 item.ItemCruiseMissileHe.name=Subsonic HE Cruise Missile
 item.ItemCruiseMissileCluster.name=Subsonic Cluster Cruise Missile

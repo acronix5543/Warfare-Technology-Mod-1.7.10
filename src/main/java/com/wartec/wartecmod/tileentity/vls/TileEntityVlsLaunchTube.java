@@ -403,8 +403,27 @@ public class TileEntityVlsLaunchTube
 		return null;
 	}
 
-	@Spaghetti(value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA *takes breath* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	public IBomb.BombReturnCode shoot(World world, int x, int y, int z) {
+		try {
+			int[] pos = ((VlsVerticalLauncher)world.getBlock(x, y, z)).findCore(world, x, y, z);
+			if(pos == null) {;
+				return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
+			}
+			TileEntityVlsLaunchTube entity = (TileEntityVlsLaunchTube)world.getTileEntity(pos[0], pos[1], pos[2]);
+
+			int xCoord = entity.slots[1].stackTagCompound.getInteger("xCoord");
+			int zCoord = entity.slots[1].stackTagCompound.getInteger("zCoord");
+			if (xCoord == entity.xCoord && zCoord == entity.zCoord) {
+				xCoord += 6;
+			}
+
+			return shootSpecial(world, pos[0], pos[1], pos[2], xCoord, zCoord);
+		} catch (Exception e) { }
+		return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
+	}
+
+	@Spaghetti(value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA *takes breath* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	public IBomb.BombReturnCode shootSpecial(World world, int x, int y, int z, int xCoord, int zCoord) {
 		TileEntityVlsLaunchTube entity = (TileEntityVlsLaunchTube)world.getTileEntity(x, y, z);
 		if (entity.slots[0] == null || world.isRemote) {
 			return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
@@ -413,17 +432,12 @@ public class TileEntityVlsLaunchTube
 			if (!((IDesignatorItem)entity.slots[1].getItem()).isReady(world, entity.slots[1], x, y, z)) {
 				return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
 			}
-			int xCoord = entity.slots[1].stackTagCompound.getInteger("xCoord");
-			int zCoord = entity.slots[1].stackTagCompound.getInteger("zCoord");
-			if (xCoord == entity.xCoord && zCoord == entity.zCoord) {
-				xCoord += 6;
-			}
+
 			if(entity.slots[0].getItem() instanceof IMissileSpawningItem) {
 				Class<? extends Entity> missile = ((IMissileSpawningItem) entity.slots[0].getItem()).getMissile();
 				Entity missileEntity;
 				try {
 					TileEntityVlsExhaust exhaust = findExhaust();
-
 					try {
 						Constructor<?> constructor = missile.getConstructor(World.class, float.class, float.class, float.class, int.class, int.class, TileEntityVlsExhaust.class);
 						missileEntity = (Entity) constructor.newInstance(world, (float) x + 0.5f, (float) y + 11.0f, (float) z + 0.5f, xCoord, zCoord, exhaust);

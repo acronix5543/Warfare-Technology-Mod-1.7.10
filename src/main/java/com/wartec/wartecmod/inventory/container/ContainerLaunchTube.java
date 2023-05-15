@@ -77,5 +77,6 @@ public class ContainerLaunchTube extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return diFurnace.isUseableByPlayer(player);
 	}
+
 }
 
