@@ -106,12 +106,13 @@ public class wartecmod {
 	    
 	@EventHandler
 		public void preload(FMLInitializationEvent event) {
-		
+
 		wartecmodItems.Items();
 		wartecmodBlocks.Blocks();
 		wartecHazardRegistry.registerItems();
 		TileEntityRegistry.registerTileEntities();
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new WartecmodGUIHandler());
+
 		
 		
 	}
