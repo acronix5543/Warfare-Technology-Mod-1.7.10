@@ -390,7 +390,7 @@ public class TileEntityVlsLaunchTube
 
 	public TileEntityVlsExhaust findExhaust() {
 		int[] exh = findNearesExhaust();
-		System.out.println(Arrays.toString(exh));
+		//System.out.println(Arrays.toString(exh));
 		if(exh != null) {
 			Block b = worldObj.getBlock(exh[0], yCoord, exh[1]);
 			if(b instanceof VlsExhaust) {
@@ -428,11 +428,7 @@ public class TileEntityVlsLaunchTube
 		if (entity.slots[0] == null || world.isRemote) {
 			return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
 		}
-		if (entity.slots[1] != null && entity.slots[1].getItem() instanceof IDesignatorItem && entity.power >= 75000L) {
-			if (!((IDesignatorItem)entity.slots[1].getItem()).isReady(world, entity.slots[1], x, y, z)) {
-				return IBomb.BombReturnCode.ERROR_MISSING_COMPONENT;
-			}
-
+		if (entity.power >= 75000L) {
 			if(entity.slots[0].getItem() instanceof IMissileSpawningItem) {
 				Class<? extends Entity> missile = ((IMissileSpawningItem) entity.slots[0].getItem()).getMissile();
 				Entity missileEntity;
