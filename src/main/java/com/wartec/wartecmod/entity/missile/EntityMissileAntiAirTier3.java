@@ -9,7 +9,6 @@ import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
 
 import api.hbm.entity.IRadarDetectable;
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

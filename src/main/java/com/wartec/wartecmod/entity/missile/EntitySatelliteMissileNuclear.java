@@ -1,27 +1,18 @@
 package com.wartec.wartecmod.entity.missile;
 
-import api.hbm.entity.ITurretTargetable;
-import com.hbm.config.BombConfig;
-import com.hbm.entity.effect.EntityCloudTom;
 import com.hbm.entity.effect.EntityNukeCloudSmall;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
-import com.hbm.entity.logic.EntityTomBlast;
-import com.hbm.entity.projectile.EntityBulletBase;
-import com.hbm.handler.BulletConfigSyncingUtil;
 import com.hbm.packet.AuxParticlePacket;
-import com.hbm.packet.AuxParticlePacketNT;
 import com.hbm.packet.PacketDispatcher;
-
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntitySatelliteMissileNuclear extends Entity implements ITurretTargetable {
+public class EntitySatelliteMissileNuclear extends Entity {
 
 	public EntitySatelliteMissileNuclear(World p_i1582_1_) {
 		super(p_i1582_1_);

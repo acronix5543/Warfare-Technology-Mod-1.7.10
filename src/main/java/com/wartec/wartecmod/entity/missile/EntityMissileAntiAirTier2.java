@@ -1,16 +1,11 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.List;
-
+import api.hbm.entity.IRadarDetectable;
 import com.hbm.entity.missile.EntityMissileBaseAdvanced;
 import com.hbm.entity.missile.EntityMissileCustom;
-import com.hbm.entity.particle.EntitySmokeFX;
 import com.hbm.explosion.ExplosionLarge;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
-
-import api.hbm.entity.IRadarDetectable;
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,6 +16,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityMissileAntiAirTier2 extends Entity implements IRadarDetectable {
 

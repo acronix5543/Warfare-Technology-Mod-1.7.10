@@ -1,18 +1,14 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hbm.config.BombConfig;
 import com.hbm.entity.effect.EntityNukeCloudSmall;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
-import com.hbm.entity.missile.EntityMissileBaseAdvanced;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.items.wartecmodItems;
-
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityMissileSlbm extends EntityBallisticMissileBase {
 
@@ -29,7 +25,7 @@ public class EntityMissileSlbm extends EntityBallisticMissileBase {
 		
 		loadNeighboringChunks((int)(posX / 55), (int)(posZ / 55));
 		//1. Sprengkopf
-    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX+50, posY, posZ)); //Stärke 250
+    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX+50, posY, posZ)); //Stï¿½rke 250
 
 		EntityNukeCloudSmall entity2 = new EntityNukeCloudSmall(this.worldObj, 1000, 150 * 0.005F);//250
     	entity2.posX = this.posX+50;
@@ -38,7 +34,7 @@ public class EntityMissileSlbm extends EntityBallisticMissileBase {
     	this.worldObj.spawnEntityInWorld(entity2);
     	
     	//2.Sprengkopf
-    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX-50, posY, posZ+50)); //Stärke 250
+    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX-50, posY, posZ+50)); //Stï¿½rke 250
 
 		EntityNukeCloudSmall entity3 = new EntityNukeCloudSmall(this.worldObj, 1000, 150 * 0.005F);//250
     	entity3.posX = this.posX-50;
@@ -47,7 +43,7 @@ public class EntityMissileSlbm extends EntityBallisticMissileBase {
     	this.worldObj.spawnEntityInWorld(entity3);
     	
     	//3.Sprengkopf
-    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX-50, posY, posZ-50)); //Stärke 250
+    	worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX-50, posY, posZ-50)); //Stï¿½rke 250
 
 		EntityNukeCloudSmall entity4 = new EntityNukeCloudSmall(this.worldObj, 1000, 150 * 0.005F);//250
     	entity4.posX = this.posX-50;

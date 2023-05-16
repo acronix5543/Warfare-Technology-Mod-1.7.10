@@ -1,16 +1,14 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.hbm.explosion.ExplosionChaos;
 import com.hbm.explosion.ExplosionLarge;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.items.wartecmodItems;
-
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityLrhwMissile extends EntityGlideWeaponBase {
 

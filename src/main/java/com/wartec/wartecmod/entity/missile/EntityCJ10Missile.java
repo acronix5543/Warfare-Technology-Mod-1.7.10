@@ -1,18 +1,14 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hbm.config.BombConfig;
-import com.hbm.entity.effect.EntityNukeCloudSmall;
-import com.hbm.explosion.ExplosionLarge;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.entity.logic.ExplosionLargeAdvanced;
 import com.wartec.wartecmod.items.wartecmodItems;
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityCJ10Missile extends EntitySubsonicCruiseMissileBase {
 
