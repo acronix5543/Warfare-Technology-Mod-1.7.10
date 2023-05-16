@@ -51,6 +51,7 @@ public class wartecmodClientProxy extends wartecmodProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityMissileAntiBallisticNuclear.class, new RenderMissileAntiBallisticNuclear());
         RenderingRegistry.registerEntityRenderingHandler(EntityMissileAntiAirTier1.class, new RenderMissileAntiAirTier1());
         RenderingRegistry.registerEntityRenderingHandler(EntitySatelliteMissileNuclear.class, new RenderSatelliteMissileNuclear());
+        RenderingRegistry.registerEntityRenderingHandler(EntityMissileASAT.class, new RenderMissileASAT());
         
          //Items
 		MinecraftForgeClient.registerItemRenderer(wartecmodItems.itemKalibrMissile, new ItemRenderKalibrMissile());

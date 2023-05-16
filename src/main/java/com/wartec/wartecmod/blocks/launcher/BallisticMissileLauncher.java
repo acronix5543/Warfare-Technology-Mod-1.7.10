@@ -2,6 +2,8 @@ package com.wartec.wartecmod.blocks.launcher;
 
 import java.util.Random;
 
+import com.hbm.items.ISatChip;
+import com.wartec.wartecmod.entity.missile.*;
 import com.wartec.wartecmod.items.wartecmodItems;
 import org.apache.logging.log4j.Level;
 
@@ -13,10 +15,6 @@ import com.hbm.interfaces.Spaghetti;
 import com.hbm.items.ModItems;
 import com.hbm.main.MainRegistry;
 import com.wartec.wartecmod.blocks.wartecmodBlocks;
-import com.wartec.wartecmod.entity.missile.EntityIskanderMissile;
-import com.wartec.wartecmod.entity.missile.EntityMissileMicroGas;
-import com.wartec.wartecmod.entity.missile.EntityMissileMicroNeutron;
-import com.wartec.wartecmod.entity.missile.EntityMissileSlbm;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
 
 
@@ -184,34 +182,41 @@ public class BallisticMissileLauncher extends BlockContainer implements IBomb {
 		if(entity.slots[0] == null || world.isRemote)
 			return BombReturnCode.ERROR_MISSING_COMPONENT;
 		
-		if(entity.slots[1] != null && entity.slots[1].getItem() instanceof IDesignatorItem && entity.power >= 75000) {
-			
-			if(!((IDesignatorItem)entity.slots[1].getItem()).isReady(world, entity.slots[1], x, y, z))
-				return BombReturnCode.ERROR_MISSING_COMPONENT;
-			
-			int xCoord = entity.slots[1].stackTagCompound.getInteger("xCoord");
-			int zCoord = entity.slots[1].stackTagCompound.getInteger("zCoord");
+		if(entity.slots[1] != null && entity.power >= 75000) {
 
-			if(xCoord == entity.xCoord && zCoord == entity.zCoord) {
-				xCoord += 1;
-			}
-			
 			Entity missile = null;
+			if(entity.slots[1].getItem() instanceof IDesignatorItem) {
+				if (!((IDesignatorItem) entity.slots[1].getItem()).isReady(world, entity.slots[1], x, y, z))
+					return BombReturnCode.ERROR_MISSING_COMPONENT;
 
-			if(entity.slots[0].getItem() == wartecmodItems.itemMissileSLBM) {
-				missile = new EntityMissileSlbm(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
-			}
-			if(entity.slots[0].getItem() == wartecmodItems.itemIskanderMissile) {
-				missile = new EntityIskanderMissile(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
-			}
-			//if(entity.slots[0].getItem() == wartecmodItems.itemLrhwMissile) {
+				int xCoord = entity.slots[1].stackTagCompound.getInteger("xCoord");
+				int zCoord = entity.slots[1].stackTagCompound.getInteger("zCoord");
+
+				if (xCoord == entity.xCoord && zCoord == entity.zCoord) {
+					xCoord += 1;
+				}
+
+				if (entity.slots[0].getItem() == wartecmodItems.itemMissileSLBM) {
+					missile = new EntityMissileSlbm(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
+				}
+				if (entity.slots[0].getItem() == wartecmodItems.itemIskanderMissile) {
+					missile = new EntityIskanderMissile(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
+				}
+				//if(entity.slots[0].getItem() == wartecmodItems.itemLrhwMissile) {
 				//missile = new EntityLrhwMissile(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
-			//}
-			if(entity.slots[0].getItem() == wartecmodItems.itemMissileMicroGas) {
-				missile = new EntityMissileMicroGas(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
-			}
-			if(entity.slots[0].getItem() == wartecmodItems.itemMissileMicroNeutron) {
-				missile = new EntityMissileMicroNeutron(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
+				//}
+				if (entity.slots[0].getItem() == wartecmodItems.itemMissileMicroGas) {
+					missile = new EntityMissileMicroGas(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
+				}
+				if (entity.slots[0].getItem() == wartecmodItems.itemMissileMicroNeutron) {
+					missile = new EntityMissileMicroNeutron(world, x + 0.5F, y + 2F, z + 0.5F, xCoord, zCoord);
+				}
+			} else if(entity.slots[1].getItem() instanceof ISatChip) {
+				int satId = ((ISatChip) entity.slots[1].getItem()).getFreq(entity.slots[1]);
+
+				if (entity.slots[0].getItem() == wartecmodItems.itemMissileAsat) {
+					missile = new EntityMissileASAT(world, x + 0.5F, y + 2F, z + 0.5F, satId);
+				}
 			}
 			
 			if(missile != null) {
@@ -221,7 +226,7 @@ public class BallisticMissileLauncher extends BlockContainer implements IBomb {
 				entity.slots[0] = null;
 	
 				if(GeneralConfig.enableExtendedLogging)
-					MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + x + " / " + y + " / " + z + " to " + xCoord + " / " + zCoord + "!");
+					MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + x + " / " + y + " / " + z + "!");
 				return BombReturnCode.LAUNCHED;
 			}
 			//wartecmod:weapon.BallisticMissileTakeoff

@@ -39,7 +39,8 @@ public class TEBallisticMissileLauncherMissilePacket implements IMessage {
 				type = 4;
 			if(stack.getItem() == wartecmodItems.itemMissileMicroNeutron)
 				type = 6;
-			
+			if(stack.getItem() == wartecmodItems.itemMissileAsat)
+				type = 7;
 		}
 	}
 

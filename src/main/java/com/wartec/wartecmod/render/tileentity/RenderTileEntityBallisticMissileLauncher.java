@@ -70,6 +70,13 @@ public class RenderTileEntityBallisticMissileLauncher extends TileEntitySpecialR
 				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Missile_Micro_Neutron_tex);
 				com.wartec.wartecmod.ResourceManager.entity_Missile_Micro.renderAll();
 			}
+			if(state == 7)
+			{
+				GL11.glScalef(2.0F, 2.0F, 2.0F);
+				// todo: change to asat model later
+				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Missile_Micro_Neutron_tex);
+				com.wartec.wartecmod.ResourceManager.entity_Missile_Micro.renderAll();
+			}
 			
 	        GL11.glEnable(GL11.GL_CULL_FACE);
 
