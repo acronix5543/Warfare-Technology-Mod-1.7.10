@@ -1,18 +1,9 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import api.hbm.entity.ITurretTargetable;
+import api.hbm.entity.IRadarDetectable;
 import com.hbm.entity.logic.IChunkLoader;
-import com.hbm.entity.missile.EntityBooster;
-import com.hbm.entity.particle.EntitySmokeFX;
 import com.hbm.explosion.ExplosionLarge;
 import com.hbm.main.MainRegistry;
-import com.hbm.packet.AuxParticlePacket;
-import com.hbm.packet.PacketDispatcher;
-
-import api.hbm.entity.IRadarDetectable;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,7 +20,10 @@ import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
-public abstract class EntityGlideWeaponBase extends Entity implements IChunkLoader, IRadarDetectable, ITurretTargetable {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class EntityGlideWeaponBase extends Entity implements IChunkLoader, IRadarDetectable {
 	
 	int tickshalfOfLifespan;
 	int startX;

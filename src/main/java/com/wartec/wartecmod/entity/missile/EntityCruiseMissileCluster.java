@@ -1,33 +1,14 @@
 package com.wartec.wartecmod.entity.missile;
 
+import com.hbm.explosion.ExplosionChaos;
+import com.hbm.items.ModItems;
+import com.wartec.wartecmod.items.wartecmodItems;
+import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.hbm.entity.projectile.EntityArtilleryShell;
-import com.hbm.explosion.ExplosionChaos;
-import com.hbm.explosion.ExplosionLarge;
-import com.hbm.explosion.vanillant.ExplosionVNT;
-import com.hbm.explosion.vanillant.standard.BlockAllocatorStandard;
-import com.hbm.explosion.vanillant.standard.BlockProcessorStandard;
-import com.hbm.explosion.vanillant.standard.EntityProcessorCross;
-import com.hbm.explosion.vanillant.standard.ExplosionEffectStandard;
-import com.hbm.explosion.vanillant.standard.PlayerProcessorStandard;
-import com.hbm.items.ModItems;
-import com.hbm.items.weapon.ItemAmmoArty;
-import com.hbm.items.weapon.ItemAmmoArty.ArtilleryShell;
-import com.hbm.packet.AuxParticlePacketNT;
-import com.hbm.packet.PacketDispatcher;
-import com.hbm.particle.SpentCasing;
-import com.wartec.wartecmod.items.wartecmodItems;
-
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
-import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
-import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
 
 public class EntityCruiseMissileCluster extends EntitySubsonicCruiseMissileBase {
 

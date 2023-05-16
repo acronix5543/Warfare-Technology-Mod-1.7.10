@@ -1,24 +1,14 @@
 package com.wartec.wartecmod.entity.missile;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hbm.explosion.ExplosionLarge;
-import com.hbm.explosion.vanillant.ExplosionVNT;
-import com.hbm.explosion.vanillant.standard.BlockAllocatorStandard;
-import com.hbm.explosion.vanillant.standard.BlockProcessorStandard;
-import com.hbm.explosion.vanillant.standard.EntityProcessorCross;
-import com.hbm.explosion.vanillant.standard.ExplosionEffectStandard;
-import com.hbm.explosion.vanillant.standard.PlayerProcessorStandard;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.entity.logic.ExplosionLargeAdvanced;
 import com.wartec.wartecmod.items.wartecmodItems;
-
-import api.hbm.entity.IRadarDetectable.RadarTargetType;
 import com.wartec.wartecmod.tileentity.vls.TileEntityVlsExhaust;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityCruiseMissileFragmentation extends EntitySubsonicCruiseMissileBase {
 
