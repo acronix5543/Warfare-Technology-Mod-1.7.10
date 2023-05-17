@@ -2,6 +2,7 @@ package com.wartec.wartecmod.entity.missile;
 
 import com.hbm.entity.effect.EntityNukeCloudSmall;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
+import com.hbm.entity.logic.IChunkLoader;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
@@ -11,8 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeChunkManager;
 
-public class EntitySatelliteMissileNuclear extends Entity {
+public class EntitySatelliteMissileNuclear extends Entity{
 
 	public EntitySatelliteMissileNuclear(World p_i1582_1_) {
 		super(p_i1582_1_);
@@ -51,8 +53,9 @@ public class EntitySatelliteMissileNuclear extends Entity {
 				entity2.posX = this.posX;
 				entity2.posY = this.posY;
 				entity2.posZ = this.posZ;
-				this.worldObj.spawnEntityInWorld(entity2);	
+				this.worldObj.spawnEntityInWorld(entity2);
 			}
+
 			this.setDead();
 		}
 	}
