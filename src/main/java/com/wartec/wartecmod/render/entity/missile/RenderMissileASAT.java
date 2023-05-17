@@ -21,14 +21,18 @@ public class RenderMissileASAT extends Render {
 		GL11.glScalef(2.0F, 2.0F, 2.0F);
 
 		// todo: change when model
-		bindTexture(ResourceManager.entity_Missile_Micro_Gas_tex);
-		ResourceManager.entity_Missile_Micro.renderAll();
+		bindTexture(ResourceManager.entity_ASAT_Missile_Warhead_tex);
+		ResourceManager.entity_ASAT_Missile_Warhead.renderAll();
+		bindTexture(ResourceManager.entity_ASAT_Missile_Fuselage_tex);
+		ResourceManager.entity_ASAT_Missile_Fuselage.renderAll();
+		bindTexture(ResourceManager.entity_ASAT_Missile_Thruster_tex);
+		ResourceManager.entity_ASAT_Missile_Thruster.renderAll();
 		GL11.glPopMatrix();
 	}
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-		return ResourceManager.entity_Missile_Micro_Gas_tex;
+		return ResourceManager.entity_ASAT_Missile_Fuselage_tex;
 	}
 
 }

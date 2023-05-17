@@ -43,6 +43,9 @@ public class ResourceManager {
 
 //Entities
 	//Models
+    public static final IModelCustom entity_ASAT_Missile_Warhead = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_ASAT_Missile_Warhead.obj"));
+	public static final IModelCustom entity_ASAT_Missile_Fuselage = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_ASAT_Missile_Fuselage.obj"));
+	public static final IModelCustom entity_ASAT_Missile_Thruster = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_ASAT_Missile_Thruster.obj"));
 	public static final IModelCustom entity_Hypersonic_Cruise_Missile_Scramjet = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Hypersonic_Cruise_Missile_Scramjet.obj"));
 	public static final IModelCustom entity_Hypersonic_Cruise_Missile_Booster = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Hypersonic_Cruise_Missile_Booster.obj"));
 	public static final IModelCustom entity_Hypersonic_Cruise_Missile_Wings = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Hypersonic_Cruise_Missile_Wings.obj"));
@@ -78,6 +81,9 @@ public class ResourceManager {
 	public static final IModelCustom entity_Missile_Anti_Air_Tier1 = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Missile_Anti_Air_Tier1.obj"));
 	public static final IModelCustom entity_Satellite_Missile_Nuclear = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Satellite_Missile_Nuclear.obj"));
 	//Textures
+	public static final ResourceLocation entity_ASAT_Missile_Warhead_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_ASAT_Missile_Warhead_tex.png");
+	public static final ResourceLocation entity_ASAT_Missile_Fuselage_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_ASAT_Missile_Fuselage_tex.png");
+	public static final ResourceLocation entity_ASAT_Missile_Thruster_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_ASAT_Missile_Thruster_tex.png");
 	public static final ResourceLocation entity_Hypersonic_Cruise_Missile_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Hypersonic_Cruise_Missile_tex.png");
 	public static final ResourceLocation entity_Hypersonic_Cruise_Missile_Nuclear_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Hypersonic_Cruise_Missile_Nuclear_tex.png");
 	public static final ResourceLocation entity_Supersonic_Cruise_Missile_Protection_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Supersonic_Cruise_Missile_Protection_tex.png");

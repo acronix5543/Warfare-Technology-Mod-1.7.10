@@ -1,8 +1,8 @@
 package com.wartec.wartecmod.render.tileentity;
 
+import com.wartec.wartecmod.ResourceManager;
 import org.lwjgl.opengl.GL11;
 
-import com.hbm.main.ResourceManager;
 import com.wartec.wartecmod.tileentity.launcher.TileEntityBallisticMissileLauncher;
 
 
@@ -74,8 +74,12 @@ public class RenderTileEntityBallisticMissileLauncher extends TileEntitySpecialR
 			{
 				GL11.glScalef(2.0F, 2.0F, 2.0F);
 				// todo: change to asat model later
-				bindTexture(com.wartec.wartecmod.ResourceManager.entity_Missile_Micro_Neutron_tex);
-				com.wartec.wartecmod.ResourceManager.entity_Missile_Micro.renderAll();
+				bindTexture(com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Warhead_tex);
+				com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Warhead.renderAll();
+				bindTexture(com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Fuselage_tex);
+				com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Fuselage.renderAll();
+				bindTexture(com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Thruster_tex);
+				ResourceManager.entity_ASAT_Missile_Thruster.renderAll();
 			}
 			
 	        GL11.glEnable(GL11.GL_CULL_FACE);
