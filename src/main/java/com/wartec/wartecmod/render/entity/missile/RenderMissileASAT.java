@@ -20,7 +20,6 @@ public class RenderMissileASAT extends Render {
 		
 		GL11.glScalef(2.0F, 2.0F, 2.0F);
 
-		// todo: change when model
 		bindTexture(ResourceManager.entity_ASAT_Missile_Warhead_tex);
 		ResourceManager.entity_ASAT_Missile_Warhead.renderAll();
 		bindTexture(ResourceManager.entity_ASAT_Missile_Fuselage_tex);

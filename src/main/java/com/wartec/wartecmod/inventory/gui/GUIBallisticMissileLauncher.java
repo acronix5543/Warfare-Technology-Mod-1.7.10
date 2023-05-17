@@ -30,12 +30,18 @@ public class GUIBallisticMissileLauncher extends GuiInfoContainer {
 
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 53, 160, 16, diFurnace.power, diFurnace.maxPower);
 
-		String[] text = new String[] { "First Slot:",
-				"  -Ballistic Missile"};
+		String[] text = new String[] {
+				"First Slot:",
+				"  -Ballistic Missile",
+				"  -AntiSatellite Missile"
+		};
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 16, guiTop + 36, 16, 16, guiLeft - 8, guiTop + 36 + 16, text);
 		
-		String[] text1 = new String[] { "Second Slot:",
-				"  -Target designator for missiles"};
+		String[] text1 = new String[] {
+				"Second Slot:",
+				"  -Target designator for ballistic missiles",
+				"  -SatelliteChip for ASAT missiles",
+		};
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 16, guiTop + 36 + 16, 16, 16, guiLeft - 8, guiTop + 36 + 16, text1);
 	}
 	

@@ -1,6 +1,5 @@
 package com.wartec.wartecmod.entity.missile;
 
-import com.hbm.explosion.ExplosionLarge;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.saveddata.SatelliteSavedData;
@@ -9,6 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityMissileASAT extends Entity {
@@ -16,6 +16,11 @@ public class EntityMissileASAT extends Entity {
     private final int satId;
 
     double acceleration = 0.00D;
+
+    public EntityMissileASAT(World world) {
+        super(world);
+        satId = 0;
+    }
 
     public EntityMissileASAT(World world, float x, float y, float z, int satId) {
         super(world);
@@ -36,8 +41,8 @@ public class EntityMissileASAT extends Entity {
     @Override
     public void onUpdate() {
 
-        if(motionY < 3.0D) {
-            acceleration += 0.0008D;
+        if(motionY < 3.7D) {
+            acceleration += 0.0007D;
             motionY += acceleration;
         }
 
@@ -45,20 +50,41 @@ public class EntityMissileASAT extends Entity {
         this.lastTickPosY = this.prevPosY = posY;
         this.lastTickPosZ = this.prevPosZ = posZ;
         this.setLocationAndAngles(posX + this.motionX, posY + this.motionY, posZ + this.motionZ, 0, 0);
+        this.rotation();
 
-        PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(posX, posY, posZ, 2),
+        PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(posX, posY + motionY, posZ, 2),
                 new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300));
 
         if(!worldObj.isRemote) {
             if (this.posY >= 600) {
-                System.out.println("deleted sat "+satId);
+                System.out.println("deleted sat " + satId);
 
                 SatelliteSavedData sd = SatelliteSavedData.getData(worldObj);
                 sd.sats.remove(satId);
                 sd.markDirty();
 
+                System.out.println("is taken: " + SatelliteSavedData.getData(worldObj).isFreqTaken(satId));
+                System.out.println("is dirty: " + SatelliteSavedData.getData(worldObj).isDirty());
+                System.out.println("sat: "+SatelliteSavedData.getData(worldObj).getSatFromFreq(satId));
+
                 this.setDead();
             }
+        }
+    }
+
+    protected void rotation() {
+        this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
+
+        while(this.rotationPitch - this.prevRotationPitch >= 180.0F) {
+            this.prevRotationPitch += 360.0F;
+        }
+
+        while(this.rotationYaw - this.prevRotationYaw < -180.0F) {
+            this.prevRotationYaw -= 360.0F;
+        }
+
+        while(this.rotationYaw - this.prevRotationYaw >= 180.0F) {
+            this.prevRotationYaw += 360.0F;
         }
     }
 

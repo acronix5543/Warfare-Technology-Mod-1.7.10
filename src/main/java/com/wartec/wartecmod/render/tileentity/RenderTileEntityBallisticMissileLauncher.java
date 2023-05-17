@@ -73,7 +73,6 @@ public class RenderTileEntityBallisticMissileLauncher extends TileEntitySpecialR
 			if(state == 7)
 			{
 				GL11.glScalef(2.0F, 2.0F, 2.0F);
-				// todo: change to asat model later
 				bindTexture(com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Warhead_tex);
 				com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Warhead.renderAll();
 				bindTexture(com.wartec.wartecmod.ResourceManager.entity_ASAT_Missile_Fuselage_tex);

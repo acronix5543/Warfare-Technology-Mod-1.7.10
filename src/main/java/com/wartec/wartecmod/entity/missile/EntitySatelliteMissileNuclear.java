@@ -2,7 +2,6 @@ package com.wartec.wartecmod.entity.missile;
 
 import com.hbm.entity.effect.EntityNukeCloudSmall;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
-import com.hbm.entity.logic.IChunkLoader;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
@@ -12,7 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeChunkManager;
 
 public class EntitySatelliteMissileNuclear extends Entity{
 
@@ -40,7 +38,7 @@ public class EntitySatelliteMissileNuclear extends Entity{
 
 		//worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.missileTakeOff", 10000, 1.0F);
 
-		motionY = -2;
+		motionY = -3;
 		
 		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(posX, posY+8, posZ, 2),
 				new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300));

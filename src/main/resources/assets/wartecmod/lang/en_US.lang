@@ -51,6 +51,7 @@ item.ItemKalibrMissile.name=3M14 Kalibr
 item.ItemTomahawkMissile.name=R/UGM-109H Tomahawk Block Va
 item.ItemCj10Missile.name=DongHai 10
 item.ItemIskanderMissile.name=9K723 Iskander-M
+item.ItemMissileASAT.name=PDV Mk2
 # CreativeTabs
 itemGroup.tabwartecmodcruisemissiles=WarTech Mod Missiles
 itemGroup.tabwartecmodparts=WarTech Mod Resources and Parts

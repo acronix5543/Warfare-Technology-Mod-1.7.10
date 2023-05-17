@@ -229,7 +229,6 @@ public class BallisticMissileLauncher extends BlockContainer implements IBomb {
 					MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + x + " / " + y + " / " + z + "!");
 				return BombReturnCode.LAUNCHED;
 			}
-			//wartecmod:weapon.BallisticMissileTakeoff
 		}
 		
 		if(entity.slots[0] != null && entity.slots[0].getItem() == ModItems.missile_carrier && entity.power >= 75000) {
