@@ -54,7 +54,7 @@ public class EntityMissileASAT extends Entity {
         this.rotation();
 
         this.spawnExhaust(posX, posY, posZ);
-                new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300));
+                new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300);
 
         if(!worldObj.isRemote) {
             if (this.posY >= 600) {
