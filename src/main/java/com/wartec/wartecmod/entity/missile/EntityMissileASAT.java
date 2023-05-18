@@ -1,5 +1,6 @@
 package com.wartec.wartecmod.entity.missile;
 
+import com.hbm.main.MainRegistry;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.saveddata.SatelliteSavedData;
@@ -52,7 +53,7 @@ public class EntityMissileASAT extends Entity {
         this.setLocationAndAngles(posX + this.motionX, posY + this.motionY, posZ + this.motionZ, 0, 0);
         this.rotation();
 
-        PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(posX, posY + motionY, posZ, 2),
+        this.spawnExhaust(posX, posY, posZ);
                 new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300));
 
         if(!worldObj.isRemote) {
@@ -70,6 +71,20 @@ public class EntityMissileASAT extends Entity {
                 this.setDead();
             }
         }
+    }
+
+    private void spawnExhaust(double x, double y, double z) {
+
+        NBTTagCompound data = new NBTTagCompound();
+        data.setString("type", "exhaust");
+        data.setString("mode", "soyuz");
+        data.setInteger("count", 2);
+        data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.5);
+        data.setDouble("posX", x);
+        data.setDouble("posY", y);
+        data.setDouble("posZ", z);
+
+        MainRegistry.proxy.effectNT(data);
     }
 
     protected void rotation() {
