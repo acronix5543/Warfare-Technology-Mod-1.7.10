@@ -78,7 +78,7 @@ public class EntityMissileASAT extends Entity {
         NBTTagCompound data = new NBTTagCompound();
         data.setString("type", "exhaust");
         data.setString("mode", "soyuz");
-        data.setInteger("count", 2);
+        data.setInteger("count", 3);
         data.setDouble("width", worldObj.rand.nextDouble() * 0.25 - 0.5);
         data.setDouble("posX", x);
         data.setDouble("posY", y);
