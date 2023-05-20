@@ -16,7 +16,7 @@ public class wartecmodVanillaRecipes {
 	{
 		//Crafting-Rezepte
 		        		
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemNavigationGPS, 1), "X#*",
+				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier1, 1), "X#*",
 						                                                                       "   ",
 						                                                                       "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier1, Character.valueOf('#'), Items.redstone, Character.valueOf('*'), ModItems.circuit_aluminium); 
 				

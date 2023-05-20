@@ -21,7 +21,7 @@ public class wartecmodAssemblerRecipes {
 		//Assembler-Rezpte
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileHe, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemNavigationGPS, 1),
+				new ComparableStack(wartecmodItems.itemGuidanceSystemTier1, 1),
 				new ComparableStack(wartecmodItems.itemWarheadHeCM, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileEmp, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
@@ -37,11 +37,11 @@ public class wartecmodAssemblerRecipes {
 				new ComparableStack(wartecmodItems.itemWarheadHCM, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileBuster, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemNavigationGPS, 1),
+				new ComparableStack(wartecmodItems.itemGuidanceSystemTier1, 1),
 				new ComparableStack(wartecmodItems.itemWarheadBuster, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileCluster, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemNavigationGPS, 1),
+				new ComparableStack(wartecmodItems.itemGuidanceSystemTier1, 1),
 				new ComparableStack(wartecmodItems.itemWarheadCluster, 1), },300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileTB, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
