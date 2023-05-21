@@ -7,6 +7,7 @@ import com.hbm.main.MainRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -94,6 +95,13 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
 
         velocity = 1;
 
+        // facePosition(targetX, targetY, targetZ, 360, 360);
+        rotationPitch = 90;
+        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)targetZ / (float)targetX) * (180/Math.PI));
+        prevRotationYaw = rotationYaw;
+        System.out.println(rotationYaw);
+        world.updateEntity(this);
+
         this.setSize(1.5F, 1.5F);
     }
 
@@ -158,6 +166,36 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         MainRegistry.proxy.effectNT(data);
     }
 
+    /**
+     * interpolated look vector
+     */
+    public Vec3 getLook(float p_70676_1_)
+    {
+        float f1;
+        float f2;
+        float f3;
+        float f4;
+
+        if (p_70676_1_ == 1.0F)
+        {
+            f1 = MathHelper.cos(-this.rotationYaw * 0.017453292F - (float)Math.PI);
+            f2 = MathHelper.sin(-this.rotationYaw * 0.017453292F - (float)Math.PI);
+            f3 = -MathHelper.cos(-this.rotationPitch * 0.017453292F);
+            f4 = MathHelper.sin(-this.rotationPitch * 0.017453292F);
+            return Vec3.createVectorHelper((double)(f2 * f3), (double)f4, (double)(f1 * f3));
+        }
+        else
+        {
+            f1 = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * p_70676_1_;
+            f2 = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * p_70676_1_;
+            f3 = MathHelper.cos(-f2 * 0.017453292F - (float)Math.PI);
+            f4 = MathHelper.sin(-f2 * 0.017453292F - (float)Math.PI);
+            float f5 = -MathHelper.cos(-f1 * 0.017453292F);
+            float f6 = MathHelper.sin(-f1 * 0.017453292F);
+            return Vec3.createVectorHelper((double)(f4 * f5), (double)f6, (double)(f3 * f5));
+        }
+    }
+
 
 
     @Override
@@ -175,21 +213,21 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         if(ticksExisted < 40) { // extraction from vls cell
             velocity = 0.7;
             this.rotationPitch = 90;
-        } else if(ticksExisted < 160) { // from launch to booster seperation
+        } else if(ticksExisted < 160-50) { // from launch to booster seperation
             if(velocity < 2.8) {
                 velocity += 0.01;
             }
-            this.rotationPitch -= 0.5;
-        } else if(ticksExisted < 200) { // to top point
-            this.rotationPitch -= 0.7;
+            this.rotationPitch -= 0.9; // 0.5 old
+        } else if(ticksExisted < 200-30) { // to top point
+            this.rotationPitch -= 1.2; // 0.7 old
             this.velocity -= 0.01;
-        } else if(ticksExisted < 300) { // to cruise alt : rot down
+        } else if(ticksExisted < 200) { // to cruise alt : rot down
             this.velocity += 0.06;
-            this.rotationPitch -= 0.4;
+            this.rotationPitch -= 0.05; // 0.4 old
         }
-        else if(ticksExisted < 400) { // to cruise alt : rot up
+        else if(ticksExisted < 400-40) { // to cruise alt : rot up
             this.velocity += 0.07;
-            this.rotationPitch += 0.4;
+            this.rotationPitch += 0.9; // 0.4 old
             System.out.println("to cruise alt down pitch: "+rotationPitch);
         } else if(this.getDistance(targetX, targetY, targetZ) < 60) { // final flight up
             System.out.println("final flight up");
@@ -199,24 +237,16 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
             System.out.println("Cruise velo "+velocity);
         }
 
-        Vec3 vector = Vec3.createVectorHelper(1, 0 , 0);
-        vector.xCoord *= velocity;
-        vector.zCoord *= velocity;
+        Vec3 look = getLook((float) velocity);
 
-        vector.rotateAroundY(rotationYaw);
+        motionX = look.xCoord;
+        motionY = -look.yCoord;
+        motionZ = look.zCoord;
 
-
-        if(motionY > 0) {
-            motionX += vector.xCoord;
-            motionZ += vector.zCoord;
-        }
-
-        if(motionY < 0) {
-            motionX -= vector.xCoord;
-            motionZ -= vector.zCoord;
-        }
-
-        this.setLocationAndAngles(posX + this.motionX * velocity, posY + this.motionY * velocity, posZ + this.motionZ * velocity, 0, 0);
+        this.lastTickPosX = this.prevPosX = this.posX = (posX + this.motionX * velocity);
+        this.lastTickPosY = this.prevPosY = this.posY = (posY + this.motionY * velocity) + (double)this.yOffset;
+        this.lastTickPosZ = this.prevPosZ = this.posZ = (posZ + this.motionZ * velocity);
+        this.setPosition(this.posX, this.posY, this.posZ);
 
         if (    this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air &&
                 this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water &&
@@ -282,7 +312,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         }
     }
 
-    List<ChunkCoordIntPair> loadedChunks = new ArrayList<ChunkCoordIntPair>();
+    List<ChunkCoordIntPair> loadedChunks = new ArrayList<>();
 
     public void loadNeighboringChunks(int newChunkX, int newChunkZ)
     {
