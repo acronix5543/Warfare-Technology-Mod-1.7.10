@@ -254,9 +254,7 @@ public abstract class EntityGlideWeaponBase extends Entity implements IChunkLoad
 	        
 	        new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300);
 	        
-	        if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air && 
-        			this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water && 
-        			this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.flowing_water) {
+	        if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air) {
         	
     			if(!this.worldObj.isRemote)
     			{

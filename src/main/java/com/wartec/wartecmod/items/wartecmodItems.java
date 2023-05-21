@@ -75,6 +75,7 @@ public class wartecmodItems {
     public static Item itemMincedMeatCooked;
     public static Item itemTargetFinder;
     public static Item itemMissileStrikeCaller;
+    public static Item itemMissileTest;
 
     public static void Items() {
         wartecmodItems.initializeItem();
@@ -139,6 +140,8 @@ public class wartecmodItems {
         itemTargetFinder = new ItemTargetFinder().setUnlocalizedName("ItemTargetFinder").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemTargetFinder");
         itemMissileStrikeCaller = new ItemMissileStrikeCaller().setUnlocalizedName("ItemMissileStrikeCaller").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemMissileStrikeCaller");
         itemMissileAsat = new Item().setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setMaxStackSize(1).setUnlocalizedName("ItemMissileASAT").setTextureName("wartecmod:ItemMissileASAT");
+
+        itemMissileTest = new ItemTestMissile(AbstractEntityCruiseMissile.class).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setUnlocalizedName("ItemCruiseMissileTest").setTextureName("wartecmod:ItemCruiseMissileTest");
     }
 
     private static void registerItem() {
@@ -198,6 +201,8 @@ public class wartecmodItems {
         GameRegistry.registerItem(itemTargetFinder, (String)itemTargetFinder.getUnlocalizedName());
         GameRegistry.registerItem(itemMissileStrikeCaller, itemMissileStrikeCaller.getUnlocalizedName());
         GameRegistry.registerItem(itemMissileAsat, (String)"ItemMissileASAT");
+
+        GameRegistry.registerItem(itemMissileTest, (String)"itemMissileTest");
     }
 }
 
