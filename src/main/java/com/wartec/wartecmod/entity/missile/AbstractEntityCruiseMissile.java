@@ -6,6 +6,7 @@ import com.hbm.explosion.ExplosionLarge;
 import com.hbm.main.MainRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
@@ -30,7 +31,6 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
     int targetY;
     int targetZ;
     double velocity;
-    double range;
     private ForgeChunkManager.Ticket loaderTicket;
     public int health = 10;
 
@@ -89,15 +89,13 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         targetX = a;
         targetZ = b;
 
-        range = (Math.sqrt(((targetX - startX) * (targetX - startX)) + ((targetZ - startZ) * (targetZ - startZ))));
-
         this.motionY = 0.25;
 
         velocity = 1;
 
         // facePosition(targetX, targetY, targetZ, 360, 360);
         rotationPitch = 90;
-        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)targetZ / (float)targetX) * (180/Math.PI));
+        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)(targetZ-startZ) / (float)(targetX-startX)) * (180/Math.PI));
         prevRotationYaw = rotationYaw;
         System.out.println(rotationYaw);
         world.updateEntity(this);
@@ -192,7 +190,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
             f4 = MathHelper.sin(-f2 * 0.017453292F - (float)Math.PI);
             float f5 = -MathHelper.cos(-f1 * 0.017453292F);
             float f6 = MathHelper.sin(-f1 * 0.017453292F);
-            return Vec3.createVectorHelper((double)(f4 * f5), (double)f6, (double)(f3 * f5));
+            return Vec3.createVectorHelper(f4 * f5, f6, f3 * f5);
         }
     }
 
@@ -203,66 +201,88 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
 
         this.dataWatcher.updateObject(8, this.health);
 
-        this.prevPosX = this.posX;
-        this.prevPosY = this.posY;
-        this.prevPosZ = this.posZ;
+        if (!worldObj.isRemote) {
 
-        this.prevRotationYaw = this.rotationYaw;
-        this.prevRotationPitch = this.rotationPitch;
+            final double distanceToTarget = getDistance(targetX, targetY, targetZ);
 
-        if(ticksExisted < 40) { // extraction from vls cell
-            velocity = 0.7;
-            this.rotationPitch = 90;
-        } else if(ticksExisted < 160-50) { // from launch to booster seperation
-            if(velocity < 2.8) {
-                velocity += 0.01;
+            this.prevPosX = this.posX;
+            this.prevPosY = this.posY;
+            this.prevPosZ = this.posZ;
+
+            this.prevRotationYaw = this.rotationYaw;
+            this.prevRotationPitch = this.rotationPitch;
+
+            if (ticksExisted < 40) { // extraction from vls cell
+                velocity = 0.7;
+                this.rotationPitch = 90;
+            } else if (ticksExisted < 160 - 50) { // from launch to booster seperation
+                if (velocity < 2.8) {
+                    velocity += 0.01;
+                }
+                this.rotationPitch -= 0.9; // 0.5 old
+            } else if (ticksExisted < 200 - 30) { // to top point
+                this.rotationPitch -= 1.2; // 0.7 old
+                this.velocity -= 0.01;
+            } else if (ticksExisted < 180) { // to cruise alt : rot down
+                this.velocity += 0.16;
+                this.rotationPitch -= 0.045; // 0.4 old
+            } else if (ticksExisted < 400 - 40) { // to cruise alt : rot up
+                if(rotationPitch < 0) {
+                    this.velocity += 0.17;
+                    this.rotationPitch += 1.2; // 0.4 old
+                } if(rotationPitch > 0) {
+                    this.velocity += 0.17;
+                    this.rotationPitch -= 0.2;
+                }
             }
-            this.rotationPitch -= 0.9; // 0.5 old
-        } else if(ticksExisted < 200-30) { // to top point
-            this.rotationPitch -= 1.2; // 0.7 old
-            this.velocity -= 0.01;
-        } else if(ticksExisted < 200) { // to cruise alt : rot down
-            this.velocity += 0.06;
-            this.rotationPitch -= 0.05; // 0.4 old
-        }
-        else if(ticksExisted < 400-40) { // to cruise alt : rot up
-            this.velocity += 0.07;
-            this.rotationPitch += 0.9; // 0.4 old
-            System.out.println("to cruise alt down pitch: "+rotationPitch);
-        } else if(this.getDistance(targetX, targetY, targetZ) < 60) { // final flight up
-            System.out.println("final flight up");
-        } else if(this.getDistance(targetX, targetY, targetZ) < 20) { // flight down
-            System.out.println("final flight down");
-        } else { // cruise
-            System.out.println("Cruise velo "+velocity);
-        }
-
-        Vec3 look = getLook((float) velocity);
-
-        motionX = look.xCoord;
-        motionY = -look.yCoord;
-        motionZ = look.zCoord;
-
-        this.lastTickPosX = this.prevPosX = this.posX = (posX + this.motionX * velocity);
-        this.lastTickPosY = this.prevPosY = this.posY = (posY + this.motionY * velocity) + (double)this.yOffset;
-        this.lastTickPosZ = this.prevPosZ = this.posZ = (posZ + this.motionZ * velocity);
-        this.setPosition(this.posX, this.posY, this.posZ);
-
-        if (    this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.air &&
-                this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water &&
-                this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.flowing_water
-        ) {
-            if(!this.worldObj.isRemote)
-            {
-                onImpact();
+            if (distanceToTarget < 60 && distanceToTarget > 20) { // final flight up
+                System.out.println("final flight up");
+            } else if (distanceToTarget < 20) { // flight down
+                System.out.println("final flight down");
+            } else { // cruise
+                if (velocity < 243) { // 879 km/h = tomahawk speed
+                    velocity += 2;
+                }
+                System.out.println("Cruise velo " + velocity);
             }
-            this.setDead();
-            return;
+
+            if(ticksExisted > 110 && ticksExisted < 115) {
+                ExplosionLarge.spawnParticles(worldObj, posX, posY, posZ, 2);
+            }
+
+            Vec3 look = getLook((float) velocity);
+
+            motionX = look.xCoord;
+            motionY = -look.yCoord;
+            motionZ = look.zCoord;
+
+            this.lastTickPosX = this.prevPosX = this.posX = (posX + this.motionX * velocity);
+            this.lastTickPosY = this.prevPosY = this.posY = (posY + this.motionY * velocity) + (double) this.yOffset;
+            this.lastTickPosZ = this.prevPosZ = this.posZ = (posZ + this.motionZ * velocity);
+            this.setPosition(this.posX, this.posY, this.posZ);
+
+            if (this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air &&
+                    this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.water &&
+                    this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.flowing_water
+            ) {
+                if (!this.worldObj.isRemote) {
+                    onImpact();
+                }
+                this.setDead();
+                return;
+            }
+
+            if(this.getDistance(startX, startY, startZ) > 440000) { // range
+                this.setDead();
+                return;
+            }
+
+            loadNeighboringChunks((int) (posX / 16), (int) (posZ / 16));
         }
 
-        loadNeighboringChunks((int)(posX / 16), (int)(posZ / 16));
-
-        spawnExhaust(posX, posY, posZ);
+        if (ticksExisted < 160 - 50) {
+            spawnExhaust(posX, posY, posZ);
+        }
 
     }
 
