@@ -95,7 +95,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
 
         // facePosition(targetX, targetY, targetZ, 360, 360);
         rotationPitch = 90;
-        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)(targetZ-startZ) / (float)(targetX-startX)) * (180/Math.PI));
+        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)(targetZ-startZ) / (float)(targetX-startX)) * (180/Math.PI) + 180);
         prevRotationYaw = rotationYaw;
         System.out.println(rotationYaw);
         world.updateEntity(this);
@@ -161,7 +161,9 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         data.setDouble("posY", y);
         data.setDouble("posZ", z);
 
-        MainRegistry.proxy.effectNT(data);
+        try {
+            MainRegistry.proxy.effectNT(data);
+        } catch (Exception ignored) {}
     }
 
     /**
@@ -212,6 +214,12 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
             this.prevRotationYaw = this.rotationYaw;
             this.prevRotationPitch = this.rotationPitch;
 
+            if(ticksExisted < 110) {
+                this.dataWatcher.updateObject(9, 1);
+            } else {
+                this.dataWatcher.updateObject(9, 2);
+            }
+
             if (ticksExisted < 40) { // extraction from vls cell
                 velocity = 0.7;
                 this.rotationPitch = 90;
@@ -234,16 +242,17 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
                     this.velocity += 0.17;
                     this.rotationPitch -= 0.2;
                 }
+            } else { // cruise
+                if (velocity < 50) { // 243 m/s = 879 km/h = tomahawk speed
+                    velocity += 2;
+                }
+                System.out.println("Cruise velo " + velocity);
             }
+
             if (distanceToTarget < 60 && distanceToTarget > 20) { // final flight up
                 System.out.println("final flight up");
             } else if (distanceToTarget < 20) { // flight down
                 System.out.println("final flight down");
-            } else { // cruise
-                if (velocity < 243) { // 879 km/h = tomahawk speed
-                    velocity += 2;
-                }
-                System.out.println("Cruise velo " + velocity);
             }
 
             if(ticksExisted > 110 && ticksExisted < 115) {
@@ -272,7 +281,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
                 return;
             }
 
-            if(this.getDistance(startX, startY, startZ) > 440000) { // range
+            if(this.getDistance(startX, startY, startZ) > 440000) { // range (real tomahawk)
                 this.setDead();
                 return;
             }
@@ -361,11 +370,6 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         }
     }
 
-
-    private void MissileToCruiseMissile() {
-        ExplosionLarge.spawnParticles(worldObj, posX, posY, posZ, 7);
-        this.dataWatcher.updateObject(9, 2);
-    }
 
     @Override
     public RadarTargetType getTargetType() {
