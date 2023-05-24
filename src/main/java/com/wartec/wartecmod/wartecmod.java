@@ -74,7 +74,7 @@ public class wartecmod {
 			    @Override
 			    @SideOnly(Side.CLIENT)
 			    public Item getTabIconItem() {
-				    return wartecmodItems.itemGuidanceSystemTier4;
+				    return wartecmodItems.itemWarheadHCM;
 			    }
 		};
 		public static CreativeTabs tabwartecmodblocks = new CreativeTabs("tabwartecmodblocks") {

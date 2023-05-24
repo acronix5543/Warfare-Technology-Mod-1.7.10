@@ -37,7 +37,6 @@ public class EntityMissileMicroNeutron extends EntityBallisticMissileBase {
 		list.add(new ItemStack(ModItems.plate_steel, 12));
 		list.add(new ItemStack(ModItems.plate_aluminium, 8));
 		list.add(new ItemStack(ModItems.thruster_large, 1));
-		list.add(new ItemStack(wartecmodItems.itemGuidanceSystemTier5, 1));
 		list.add(new ItemStack(ModItems.circuit_targeting_tier4, 1));
 		
 		

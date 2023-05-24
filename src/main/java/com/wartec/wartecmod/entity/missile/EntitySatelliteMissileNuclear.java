@@ -38,7 +38,7 @@ public class EntitySatelliteMissileNuclear extends Entity{
 
 		//worldObj.playSoundEffect(posX, posY, posZ, "hbm:weapon.missileTakeOff", 10000, 1.0F);
 
-		motionY = -3;
+		motionY = -5;
 		
 		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(posX, posY+8, posZ, 2),
 				new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300));

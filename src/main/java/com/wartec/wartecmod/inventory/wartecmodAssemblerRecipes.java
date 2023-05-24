@@ -25,15 +25,12 @@ public class wartecmodAssemblerRecipes {
 				new ComparableStack(wartecmodItems.itemWarheadHeCM, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileEmp, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier2, 1),
 				new ComparableStack(wartecmodItems.itemWarheadEmp, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileNuclear, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier3, 1),
 				new ComparableStack(wartecmodItems.itemWarheadNuclearCM, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileH, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier4, 1),
 				new ComparableStack(wartecmodItems.itemWarheadHCM, 1),},300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileBuster, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
@@ -45,7 +42,6 @@ public class wartecmodAssemblerRecipes {
 				new ComparableStack(wartecmodItems.itemWarheadCluster, 1), },300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemCruiseMissileTB, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemCruiseMissileNoWarheadTier1, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier3, 1),
 				new ComparableStack(wartecmodItems.itemWarheadTB, 1), },300);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemMissileStrongAntiBallistic, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemKKV, 1), 
@@ -53,8 +49,7 @@ public class wartecmodAssemblerRecipes {
 				new ComparableStack(ModItems.thruster_medium, 1), 
 				new OreDictStack("plateTitanium", 10), 
 				new OreDictStack("plateSteel", 14), 
-				new ComparableStack(ModItems.circuit_targeting_tier4, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier6, 1), },350);
+				new ComparableStack(ModItems.circuit_targeting_tier4, 1),},350);
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemMissileSLBM, 1), new AStack[] {
 				new ComparableStack(wartecmodItems.itemHWarhead, 1), 
 				new ComparableStack(ModItems.fuel_tank_large, 1), 
@@ -62,8 +57,7 @@ public class wartecmodAssemblerRecipes {
 				new OreDictStack("plateTitanium", 20), 
 				new OreDictStack("plateSteel", 24), 
 				new OreDictStack("plateAluminum", 16),
-				new ComparableStack(ModItems.circuit_targeting_tier4, 1),
-				new ComparableStack(wartecmodItems.itemGuidanceSystemTier5, 1), },750);
+				new ComparableStack(ModItems.circuit_targeting_tier4, 1),},750);
 		
 //Parts
 		com.hbm.inventory.recipes.AssemblerRecipes.makeRecipe(new ComparableStack(wartecmodItems.itemEngineInletSectionTier1, 1), new AStack[] {

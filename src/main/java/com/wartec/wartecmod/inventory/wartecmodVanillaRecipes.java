@@ -20,26 +20,6 @@ public class wartecmodVanillaRecipes {
 						                                                                       "   ",
 						                                                                       "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier1, Character.valueOf('#'), Items.redstone, Character.valueOf('*'), ModItems.circuit_aluminium); 
 				
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier2, 1), "X#*",
-			                                                                                   "   ",
-			                                                                                   "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier2, Character.valueOf('#'), ModItems.powder_quartz, Character.valueOf('*'), ModItems.circuit_copper); 
-
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier3, 1), "X#*",
-			                                                                                   "   ",
-			                                                                                   "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier3, Character.valueOf('#'), ModItems.powder_gold, Character.valueOf('*'), ModItems.circuit_red_copper); 
-
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier4, 1), "X#*",
-			                                                                                   "   ",
-			                                                                                   "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier4, Character.valueOf('#'), ModItems.powder_lapis, Character.valueOf('*'), ModItems.circuit_gold); 
-				
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier5, 1), "X#*",
-			                                                                                   "   ",
-			                                                                                   "   ", Character.valueOf('X'), ModItems.circuit_targeting_tier5, Character.valueOf('#'), ModItems.powder_diamond, Character.valueOf('*'), ModItems.circuit_schrabidium); 
-
-				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemGuidanceSystemTier6, 1), "X#*",
-			                                                                                   "   ",
-			                                                                                   "   ", Character.valueOf('X'), ModItems.powder_spark_mix, Character.valueOf('#'), ModItems.battery_potatos, Character.valueOf('*'), wartecmodItems.itemGuidanceSystemTier5); 
-
 				GameRegistry.addShapedRecipe(new ItemStack(wartecmodItems.itemCruiseWings, 1), "   ",
 			                                                                                   "X#X",
 			                                                                                   "   ", Character.valueOf('X'), ModItems.plate_titanium, Character.valueOf('#'), ModBlocks.steel_scaffold); 
