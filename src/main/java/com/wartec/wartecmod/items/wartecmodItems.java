@@ -42,6 +42,7 @@ public class wartecmodItems {
     public static Item itemPlateU238;
     public static Item itemIngotArmorSteel;
     public static Item sat_nuclear;
+    public static Item sat_rods;
     public static Item sat_emp;
     public static Item itemCruiseMissileHe;
     public static Item itemCruiseMissileCluster;
@@ -129,6 +130,7 @@ public class wartecmodItems {
         itemMincedMeatRaw = new ItemFood(1, 0.0f, false).setUnlocalizedName("ItemMincedMeatRaw").setCreativeTab(wartecmod.tabwartecmodcons).setTextureName("wartecmod:ItemMincedMeatRaw");
         itemMincedMeatCooked = new ItemFood(4, 0.0f, false).setUnlocalizedName("ItemMincedMeatCooked").setCreativeTab(wartecmod.tabwartecmodcons).setTextureName("wartecmod:ItemMincedMeatCooked");
         sat_nuclear = new ItemSatChip().setUnlocalizedName("sat_nuclear").setMaxStackSize(1).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemSatelliteNuclear");
+        sat_rods = new ItemSatChip().setUnlocalizedName("sat_rods").setMaxStackSize(1).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemSatelliteRods");
         sat_emp = new ItemSatChip().setUnlocalizedName("sat_emp").setMaxStackSize(1).setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("hbm:sat_mapper");
         itemTargetFinder = new ItemTargetFinder().setUnlocalizedName("ItemTargetFinder").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemTargetFinder");
         itemMissileStrikeCaller = new ItemMissileStrikeCaller().setUnlocalizedName("ItemMissileStrikeCaller").setCreativeTab(wartecmod.tabwartecmodcruisemissiles).setTextureName("wartecmod:ItemMissileStrikeCaller");
@@ -185,6 +187,7 @@ public class wartecmodItems {
         GameRegistry.registerItem(itemMincedMeatRaw, (String)itemMincedMeatRaw.getUnlocalizedName());
         GameRegistry.registerItem(itemMincedMeatCooked, (String)itemMincedMeatCooked.getUnlocalizedName());
         GameRegistry.registerItem(sat_nuclear, (String)sat_nuclear.getUnlocalizedName());
+        GameRegistry.registerItem(sat_rods, (String)sat_rods.getUnlocalizedName());
         GameRegistry.registerItem(sat_emp, (String)sat_emp.getUnlocalizedName());
         GameRegistry.registerItem(itemTargetFinder, (String)itemTargetFinder.getUnlocalizedName());
         GameRegistry.registerItem(itemMissileStrikeCaller, itemMissileStrikeCaller.getUnlocalizedName());

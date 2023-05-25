@@ -8,6 +8,7 @@ public class SatelliteRegistry {
 
 		Satellite.registerSatellite(SatelliteNuclear.class, wartecmodItems.sat_nuclear);
 		Satellite.registerSatellite(SatelliteEmp.class, wartecmodItems.sat_emp);
+		Satellite.registerSatellite(SatelliteRods.class, wartecmodItems.sat_rods);
 
 	}
 }

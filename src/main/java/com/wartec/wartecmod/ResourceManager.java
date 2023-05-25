@@ -21,6 +21,9 @@ public class ResourceManager {
 	public static final IModelCustom block_Satellite_Nuclear_Launcher = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_nuclear_launcher.obj"));
 	public static final IModelCustom block_Satellite_Nuclear_Missiles = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_nuclear_missiles.obj"));
 	public static final IModelCustom block_Satellite_Nuclear_Com = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_nuclear_com.obj"));
+	public static final IModelCustom block_Satellite_Rods_Base = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_rods_base.obj"));
+	public static final IModelCustom block_Satellite_Rods_Storage = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_rods_storage.obj"));
+	public static final IModelCustom block_Satellite_Rods_Ammo = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_sat_rods_ammo.obj"));
 	public static final IModelCustom block_Supersonic_Cruise_Missile_Protection = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_Supersonic_Cruise_Missile_Protection.obj"));
 	public static final IModelCustom block_Supersonic_Cruise_Missile_Ramjet = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_Supersonic_Cruise_Missile_Ramjet.obj"));
 	public static final IModelCustom block_Supersonic_Cruise_Missile_Fuselage = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/blocks/block_Supersonic_Cruise_Missile_Fuselage.obj"));
@@ -40,7 +43,8 @@ public class ResourceManager {
 	public static final ResourceLocation sat_nuclear_base_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/sat_nuclear_base_tex.png");
 	public static final ResourceLocation sat_nuclear_com_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/sat_nuclear_com_tex.png");
 	public static final ResourceLocation sat_nuclear_launcher_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/sat_nuclear_launcher_tex.png");
-
+	public static final ResourceLocation sat_rods_base_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/block_sat_rods_base_tex.png");
+	public static final ResourceLocation sat_rods_storage_tex = new ResourceLocation(RefStrings.MODID, "textures/models/blocks/block_sat_rods_storage_tex.png");
 //Entities
 	//Models
     public static final IModelCustom entity_ASAT_Missile_Warhead = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_ASAT_Missile_Warhead.obj"));
@@ -80,6 +84,7 @@ public class ResourceManager {
 	public static final IModelCustom entity_Missile_Micro = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Missile_Micro.obj"));
 	public static final IModelCustom entity_Missile_Anti_Air_Tier1 = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Missile_Anti_Air_Tier1.obj"));
 	public static final IModelCustom entity_Satellite_Missile_Nuclear = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Satellite_Missile_Nuclear.obj"));
+	public static final IModelCustom entity_Rod_Tungsten = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/entity_Rod_Tungsten.obj"));
 	//Textures
 	public static final ResourceLocation entity_ASAT_Missile_Warhead_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_ASAT_Missile_Warhead_tex.png");
 	public static final ResourceLocation entity_ASAT_Missile_Fuselage_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_ASAT_Missile_Fuselage_tex.png");
@@ -115,5 +120,6 @@ public class ResourceManager {
 	public static final ResourceLocation entity_Missile_Micro_Neutron_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Missile_Micro_Neutron.png");
 	public static final ResourceLocation entity_Missile_Anti_Air_Tier1_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Missile_Anti_Air_Tier1.png");
 	public static final ResourceLocation entity_Sat_Nuclear_Missile_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_sat_nuclear_missile_tex.png");
-	
+	public static final ResourceLocation entity_Rod_Tungsten_tex = new ResourceLocation(RefStrings.MODID, "textures/models/entity_Rod_Tungsten_tex.png");
+
 }

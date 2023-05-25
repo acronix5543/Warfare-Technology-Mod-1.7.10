@@ -39,6 +39,7 @@ public class wartecmodBlocks {
 	public static Block decoBlockHypersonicCruiseMissile;
 	public static Block decoBlockHypersonicCruiseMissileNuclear;
 	public static Block decoBlockSatelliteNuclear;
+	public static Block decoBlockSatelliteRods;
 	public static Block decoBlockFlagUS;
 	public static Block decoBlockFlagSU;
 	public static Block decoBlockFlagEU;
@@ -70,7 +71,8 @@ public class wartecmodBlocks {
 	    decoBlockHypersonicCruiseMissileNuclear = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.wood).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockHypersonicCruiseMissileNuclear").setBlockName("DecoBlockHypersonicCruiseMissileNuclear");
 	    decoBlockHypersonicCruiseMissile = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.wood).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockHypersonicCruiseMissile").setBlockName("DecoBlockHypersonicCruiseMissile");
 	    decoBlockSatelliteNuclear = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.wood).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockSatelliteNuclear").setBlockName("DecoBlockSatelliteNuclear");
-	    decoBlockFlagUS = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.carpet).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockFlagUS").setBlockName("DecoBlockFlagUS");
+		decoBlockSatelliteRods = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.wood).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockSatelliteRods").setBlockName("DecoBlockSatelliteRods");
+		decoBlockFlagUS = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.carpet).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockFlagUS").setBlockName("DecoBlockFlagUS");
 	    decoBlockFlagSU = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.carpet).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockFlagSU").setBlockName("DecoBlockFlagSU");
 	    decoBlockFlagEU = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.carpet).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockFlagEU").setBlockName("DecoBlockFlagEU");
 	    decoBlockFlagAL = new com.wartec.wartecmod.blocks.deco.DecoBlock(Material.carpet).setCreativeTab(wartecmod.tabwartecmodblocks).setBlockTextureName(com.wartec.wartecmod.lib.RefStrings.MODID + ":DecoBlockFlagAL").setBlockName("DecoBlockFlagAL");
@@ -93,6 +95,7 @@ public class wartecmodBlocks {
 		GameRegistry.registerBlock(decoBlockHypersonicCruiseMissile, "DecoBlockHypersonicCruiseMissile");
 		GameRegistry.registerBlock(decoBlockHypersonicCruiseMissileNuclear, "DecoBlockHypersonicCruiseMissileNuclear");
 		GameRegistry.registerBlock(decoBlockSatelliteNuclear, "DecoBlockSatelliteNuclear");
+		GameRegistry.registerBlock(decoBlockSatelliteRods, "DecoBlockSatelliteRods");
 		//Missile equipment
 		GameRegistry.registerBlock(LaunchTube, LaunchTube.getUnlocalizedName());
 		GameRegistry.registerBlock(VlsExhaust, VlsExhaust.getUnlocalizedName());

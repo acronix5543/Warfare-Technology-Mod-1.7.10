@@ -2,8 +2,10 @@ package com.wartec.wartecmod.Proxies;
 
 
 import com.wartec.wartecmod.entity.missile.*;
+import com.wartec.wartecmod.entity.projectile.EntitySatelliteRods;
 import com.wartec.wartecmod.items.wartecmodItems;
 import com.wartec.wartecmod.render.entity.missile.*;
+import com.wartec.wartecmod.render.entity.projectile.RenderSatelliteRods;
 import com.wartec.wartecmod.render.item.*;
 import com.wartec.wartecmod.render.tileentity.RenderTileEntityBallisticMissileLauncher;
 import com.wartec.wartecmod.render.tileentity.*;
@@ -52,6 +54,7 @@ public class wartecmodClientProxy extends wartecmodProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityMissileAntiAirTier1.class, new RenderMissileAntiAirTier1());
         RenderingRegistry.registerEntityRenderingHandler(EntitySatelliteMissileNuclear.class, new RenderSatelliteMissileNuclear());
         RenderingRegistry.registerEntityRenderingHandler(EntityMissileASAT.class, new RenderMissileASAT());
+        RenderingRegistry.registerEntityRenderingHandler(EntitySatelliteRods.class, new RenderSatelliteRods());
         
          //Items
 		MinecraftForgeClient.registerItemRenderer(wartecmodItems.itemKalibrMissile, new ItemRenderKalibrMissile());

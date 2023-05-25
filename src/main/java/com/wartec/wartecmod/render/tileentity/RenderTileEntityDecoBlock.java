@@ -453,6 +453,32 @@ public void renderTileEntityAt(TileEntity te, double x, double y, double z, floa
 		        ResourceManager.block_Satellite_Nuclear_Missiles.renderAll();
 		        GL11.glPopMatrix();
 	        }
+	if(te.getWorldObj().getBlock(te.xCoord, te.yCoord, te.zCoord) == wartecmodBlocks.decoBlockSatelliteRods) {
+		GL11.glRotatef(180, 0F, 0F, 1F);
+		GL11.glTranslatef(0, -1.5F, 0);
+
+		switch(te.getBlockMetadata()) {
+			case 4: GL11.glRotatef(0, 0F, 1F, 0F); break;
+			case 2: GL11.glRotatef(270, 0F, 1F, 0F); break;
+			case 5: GL11.glRotatef(180, 0F, 1F, 0F); break;
+			case 3: GL11.glRotatef(90, 0F, 1F, 0F); break;
+			default:
+				GL11.glRotatef(180, 0F, 0F, 1F);
+				GL11.glRotated(90, 1, 0, 0);
+				GL11.glTranslatef(0, -1.5F, 0);
+				break;
+		}
+
+		GL11.glEnable(GL11.GL_CULL_FACE);
+		bindTexture(ResourceManager.sat_rods_base_tex);
+		ResourceManager.block_Satellite_Rods_Base.renderAll();
+		bindTexture(ResourceManager.sat_rods_storage_tex);
+		ResourceManager.block_Satellite_Rods_Storage.renderAll();
+		bindTexture(ResourceManager.entity_Rod_Tungsten_tex);
+		ResourceManager.block_Satellite_Rods_Ammo.renderAll();
+		GL11.glPopMatrix();
+	}
+
 }}
 
     

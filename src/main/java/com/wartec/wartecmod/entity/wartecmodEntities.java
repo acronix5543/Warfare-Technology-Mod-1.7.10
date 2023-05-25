@@ -1,6 +1,7 @@
 package com.wartec.wartecmod.entity;
 
 import com.wartec.wartecmod.entity.missile.*;
+import com.wartec.wartecmod.entity.projectile.EntitySatelliteRods;
 import com.wartec.wartecmod.wartecmod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -31,6 +32,7 @@ public class wartecmodEntities {
         EntityRegistry.registerModEntity(EntitySatelliteMissileNuclear.class, "entity_Satellite_Missile_Nuclear", 23, mod, 1000, 1, true);
         EntityRegistry.registerModEntity(EntityCruiseMissileFragmentation.class, "entity_Cruise_Missile_Fragmentation", 24, mod, 1000, 1, true);
         EntityRegistry.registerModEntity(EntityMissileASAT.class, "entity_Missile_asat", 25, mod, 1000, 1, true);
+        EntityRegistry.registerModEntity(EntitySatelliteRods.class, "entity_Sat_Rods", 26, mod, 1000, 1, true);
 
     }
     

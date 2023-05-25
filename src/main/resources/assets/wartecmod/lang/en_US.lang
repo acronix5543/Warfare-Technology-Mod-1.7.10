@@ -28,6 +28,7 @@ item.IngotArmorSteel.name=Armor Steel Ingot
 item.ItemMincedMeatRaw.name=Raw Minced Meat
 item.ItemMincedMeatCooked.name=Fried Minced Meat
 item.sat_nuclear.name=H.A.D.E.S - Satellite based Thermonuclear Weapon System
+item.sat_rods.name=Rods from God
 item.ItemMissileStrikeCaller.name=VLS-demonstrating-tool
 item.ItemTargetFinder.name=Target selector
 # Missile Items
@@ -73,6 +74,7 @@ tile.DecoBlockHypersonicCruiseMissile.name=Hypersonic HE Cruise Missile (Deco bl
 tile.DecoBlockSupersonicCruiseMissileH.name=Supersonic Thermonuclear Cruise Missile (Deco block)
 tile.DecoBlockHypersonicCruiseMissileNuclear.name=Hypersonic Nuclear Cruise Missile (Deco block)
 tile.DecoBlockSatelliteNuclear.name= H.A.D.E.S - Satellite based Thermonuclear Weapon System (Deco block)
+tile.DecoBlockSatelliteRods.name= Rods from God (Deco block)
 tile.DecoBlockFlagUS.name=US Flag	
 tile.DecoBlockFlagSU.name=Soviet Union Flag
 tile.DecoBlockFlagEU.name=European Union Flag
