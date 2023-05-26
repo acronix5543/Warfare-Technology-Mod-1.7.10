@@ -11,10 +11,10 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 public class SatelliteRods extends Satellite {
 
-    int usagesLeft = 8;
+    int usagesLeft = 16;
 
     public SatelliteRods() {
-        this.satIface = Interfaces.SAT_COORD;
+        this.satIface = Interfaces.SAT_PANEL;
     }
 
     public void onOrbit(World world, double x, double y, double z) {
@@ -44,7 +44,7 @@ public class SatelliteRods extends Satellite {
         Rod.setPosition(x + 0.5, 600, z + 0.5);
 
         IChunkProvider provider = world.getChunkProvider();
-        provider.loadChunk(x >> 8, z >> 8);
+        provider.loadChunk(x >> 16, z >> 16);
 
         world.spawnEntityInWorld(Rod);
 
