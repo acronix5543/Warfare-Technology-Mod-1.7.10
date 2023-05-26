@@ -14,10 +14,7 @@ public class SatelliteRods extends Satellite {
     int usagesLeft = 16;
 
     public SatelliteRods() {
-        this.ifaceAcs.add(InterfaceActions.HAS_MAP);
-        this.ifaceAcs.add(InterfaceActions.SHOW_COORDS);
-        this.ifaceAcs.add(InterfaceActions.CAN_CLICK);
-        this.satIface = Interfaces.SAT_PANEL;
+        this.satIface = Interfaces.SAT_COORD;
     }
 
     public void onOrbit(World world, double x, double y, double z) {
