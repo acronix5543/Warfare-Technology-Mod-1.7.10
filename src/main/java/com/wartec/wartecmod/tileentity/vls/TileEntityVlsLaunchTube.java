@@ -58,7 +58,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import org.apache.logging.log4j.Level;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -227,11 +226,13 @@ public class TileEntityVlsLaunchTube
 	@Override
 	public void updateEntity() {
 		if (!this.worldObj.isRemote) {
+			/*
 			if(exhaustSearchDelay <= 0) {
 				exhaust = findExhaust();
 				exhaustSearchDelay = 90;
 			}
 			exhaustSearchDelay--;
+			 */
 
 			if(open && openingAnimation < 90)
 				openingAnimation += 3;
@@ -452,9 +453,6 @@ public class TileEntityVlsLaunchTube
 
 					entity.power -= 50000L;
 					entity.slots[0] = null;
-					if (GeneralConfig.enableExtendedLogging) {
-						MainRegistry.logger.log(Level.INFO, "[MISSILE] Tried to launch missile at " + x + " / " + y + " / " + z + " to " + xCoord + " / " + zCoord + "!");
-					}
 					return IBomb.BombReturnCode.LAUNCHED;
 				} catch (Exception e) {
 					throw new RuntimeException(e);
