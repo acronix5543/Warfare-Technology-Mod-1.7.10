@@ -108,11 +108,11 @@ public abstract class EntityHypersonicCruiseMissileBase extends Entity implement
 		
 		startsonicspeed = transformationpointvector*1.34;
 		
-		this.motionY = 0.25;
+		this.motionY = 0.75;
 
         Vec3 vector = Vec3.createVectorHelper(targetX - startX, 0, targetZ - startZ);
 		accelXZ = decelY = 1/vector.lengthVector();
-		decelY *= 0.25;
+		decelY *= 0.75;
 			
 		velocity = 1;
 

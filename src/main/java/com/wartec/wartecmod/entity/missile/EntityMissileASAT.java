@@ -63,6 +63,7 @@ public class EntityMissileASAT extends Entity {
                 SatelliteSavedData sd = SatelliteSavedData.getData(worldObj);
                 sd.sats.remove(satId);
                 sd.markDirty();
+                SatelliteSavedData.getData(worldObj);
 
                 System.out.println("is taken: " + SatelliteSavedData.getData(worldObj).isFreqTaken(satId));
                 System.out.println("is dirty: " + SatelliteSavedData.getData(worldObj).isDirty());
