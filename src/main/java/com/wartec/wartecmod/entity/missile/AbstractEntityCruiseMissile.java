@@ -95,7 +95,11 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
 
         // facePosition(targetX, targetY, targetZ, 360, 360);
         rotationPitch = 90;
-        rotationYaw = (float) MathHelper.wrapAngleTo180_double(Math.tan((float)(targetZ-startZ) / (float)(targetX-startX)) * (180/Math.PI) + 180);
+        float tx = (float) (targetX - startX);
+        float tz = (float) (targetZ - startZ);
+        float angle = Math.atan2(tx, tz)
+        
+        rotationYaw = (float) MathHelper.wrapAngleTo180_double(angle * (180/Math.PI) + 180);
         prevRotationYaw = rotationYaw;
         System.out.println(rotationYaw);
         world.updateEntity(this);
