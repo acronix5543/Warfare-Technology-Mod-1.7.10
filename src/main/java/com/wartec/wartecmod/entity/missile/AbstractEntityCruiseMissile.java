@@ -93,7 +93,6 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
 
         velocity = 1;
 
-        // facePosition(targetX, targetY, targetZ, 360, 360);
         rotationPitch = 90;
         float tx = (float) (targetX - startX);
         float tz = (float) (targetZ - startZ);
