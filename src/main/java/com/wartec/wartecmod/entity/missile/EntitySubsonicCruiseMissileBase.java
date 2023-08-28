@@ -53,6 +53,7 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 		startY = (int) posY;
 		startZ = (int) posZ;
 		targetX = (int) posX;
+		targetY = (int) posY;
 		targetZ = (int) posZ;
 	}
 	
@@ -284,9 +285,6 @@ public abstract class EntitySubsonicCruiseMissileBase extends Entity implements 
 	        
 	        if(this.positionvectorCruise > this.transformationpointvector && this.dataWatcher.getWatchableObjectInt(9) == 1 && !this.worldObj.isRemote) {//this.ticksExisted > 205
 	        	this.MissileToCruiseMissile();
-				if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.flowing_water) {
-					onImpact();
-				}
 	        }
 	        
 	        new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300); //300

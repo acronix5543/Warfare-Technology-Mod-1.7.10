@@ -217,7 +217,7 @@ public abstract class EntityHypersonicCruiseMissileBase extends Entity implement
 		else if(this.ticksExisted > 20)
 			velocity = 2;
 		if(this.positionvectorCruise > this.startsonicspeed && isHypersonic && !this.worldObj.isRemote)
-	    	velocity = 12;
+	    	velocity = 8;
 		this.velocityChanged = true;
 		
         this.dataWatcher.updateObject(8, Integer.valueOf(this.health));
@@ -264,9 +264,6 @@ public abstract class EntityHypersonicCruiseMissileBase extends Entity implement
 	        
 	        if(this.positionvectorCruise > this.transformationpointvector && this.dataWatcher.getWatchableObjectInt(9) == 1 && !this.worldObj.isRemote) {//this.ticksExisted > 205    
 	              this.MissileToCruiseMissile();
-				if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.flowing_water) {
-					onImpact();
-				}
 	        }
 	        
 	        new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300); //300

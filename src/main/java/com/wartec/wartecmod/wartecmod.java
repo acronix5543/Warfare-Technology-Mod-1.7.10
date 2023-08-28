@@ -107,7 +107,6 @@ public class wartecmod {
 	@EventHandler
 		public void preload(FMLInitializationEvent event) {
 
-		wartecmodItems.Items();
 		wartecmodBlocks.Blocks();
 		wartecHazardRegistry.registerItems();
 		TileEntityRegistry.registerTileEntities();
@@ -121,6 +120,7 @@ public class wartecmod {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		PacketRegistry.registerPackets();
+		wartecmodItems.Items();
 
 		wartecmodEntities.registerAll(this);
 		

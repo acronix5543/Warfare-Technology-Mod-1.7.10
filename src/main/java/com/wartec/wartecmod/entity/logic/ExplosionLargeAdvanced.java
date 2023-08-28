@@ -55,6 +55,21 @@ public class ExplosionLargeAdvanced {
 		xnt.explode();
 		killAndClear();
 	}
+
+	public void standardExplosion(World worldObj, double posX, double posY, double posZ, float size, float rangeMod, boolean breaksBlocks) {
+		worldObj.playSoundEffect(posX, posY, posZ, "wartecmod:entity.bombDet3", 50.0F, 0.9F + worldObj.rand.nextFloat() * 0.2F);
+		Vec3 vec = Vec3.createVectorHelper(posX, posY, posZ).normalize();
+		ExplosionVNT xnt = new ExplosionVNT(worldObj, posX, posY, posZ, size);
+		if(breaksBlocks) {
+			xnt.setBlockAllocator(new BlockAllocatorStandard(48));
+			xnt.setBlockProcessor(new BlockProcessorStandard().setNoDrop());
+		}
+		xnt.setEntityProcessor(new EntityProcessorCross(7.5).withRangeMod(rangeMod));
+		xnt.setPlayerProcessor(new PlayerProcessorStandard());
+		xnt.setSFX(new ExplosionEffectStandard());
+		xnt.explode();
+		killAndClear();
+	}
 	
 	public static void standardMush(World world, double x, double y, double z, float size) {
 		NBTTagCompound data = new NBTTagCompound();

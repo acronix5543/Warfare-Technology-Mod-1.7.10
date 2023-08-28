@@ -109,11 +109,11 @@ public abstract class EntitySupersonicCruiseMissileBase extends Entity implement
 		
 		startsonicspeed = transformationpointvector*1.34;
 		
-		this.motionY = 0.25;
+		this.motionY = 0.5;
 
         Vec3 vector = Vec3.createVectorHelper(targetX - startX, 0, targetZ - startZ);
 		accelXZ = decelY = 1/vector.lengthVector();
-		decelY *= 0.25;
+		decelY *= 0.5;
 			
 		velocity = 1;
 
@@ -218,7 +218,7 @@ public abstract class EntitySupersonicCruiseMissileBase extends Entity implement
 		else if(this.ticksExisted > 20)
 			velocity = 2;
 		if(this.positionvectorCruise > this.startsonicspeed && isSupersonic && !this.worldObj.isRemote)
-	    	velocity = 7;
+	    	velocity = 6;
 		this.velocityChanged = true;
 		
         this.dataWatcher.updateObject(8, Integer.valueOf(this.health));
@@ -265,9 +265,6 @@ public abstract class EntitySupersonicCruiseMissileBase extends Entity implement
 	        
 	        if(this.positionvectorCruise > this.transformationpointvector && this.dataWatcher.getWatchableObjectInt(9) == 1 && !this.worldObj.isRemote) {//this.ticksExisted > 205
 	        	this.MissileToCruiseMissile();
-				if(this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, (int)this.posY, (int)this.posZ) != Blocks.flowing_water) {
-					onImpact();
-				}
 	        }
 	        
 	        new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300); //300

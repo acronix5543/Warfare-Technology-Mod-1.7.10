@@ -1,6 +1,8 @@
 package com.wartec.wartecmod.entity.missile;
 
+import com.hbm.config.BombConfig;
 import com.hbm.entity.effect.EntityNukeCloudSmall;
+import com.hbm.entity.effect.EntityNukeTorex;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
 import com.hbm.items.ModItems;
 import com.wartec.wartecmod.items.wartecmodItems;
@@ -26,12 +28,7 @@ public class EntityCruiseMissileH extends EntitySubsonicCruiseMissileBase {
 	public void onImpact() {
 		
 		worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 150, posX, posY, posZ));
-
-		EntityNukeCloudSmall entity2 = new EntityNukeCloudSmall(this.worldObj, 1000, 150 * 0.005F);
-    	entity2.posX = this.posX;
-    	entity2.posY = this.posY - 9;
-    	entity2.posZ = this.posZ;
-    	this.worldObj.spawnEntityInWorld(entity2);
+		EntityNukeTorex.statFac(worldObj, posX, posY, posZ, 150);
 	}
 	@Override
 	public List<ItemStack> getDebris() {

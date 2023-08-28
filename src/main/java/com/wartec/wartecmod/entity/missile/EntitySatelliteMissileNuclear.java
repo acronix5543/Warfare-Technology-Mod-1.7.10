@@ -1,6 +1,8 @@
 package com.wartec.wartecmod.entity.missile;
 
+import com.hbm.config.BombConfig;
 import com.hbm.entity.effect.EntityNukeCloudSmall;
+import com.hbm.entity.effect.EntityNukeTorex;
 import com.hbm.entity.logic.EntityNukeExplosionMK5;
 import com.hbm.packet.AuxParticlePacket;
 import com.hbm.packet.PacketDispatcher;
@@ -46,12 +48,7 @@ public class EntitySatelliteMissileNuclear extends Entity{
 		if(this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ) != Blocks.air) {
 			if(!this.worldObj.isRemote) {
 				worldObj.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(worldObj, 200, posX, posY, posZ));
-
-				EntityNukeCloudSmall entity2 = new EntityNukeCloudSmall(this.worldObj, 1000, 200 * 0.005F);
-				entity2.posX = this.posX;
-				entity2.posY = this.posY;
-				entity2.posZ = this.posZ;
-				this.worldObj.spawnEntityInWorld(entity2);
+				EntityNukeTorex.statFac(worldObj, posX, posY, posZ, 200);
 			}
 
 			this.setDead();
