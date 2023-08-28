@@ -96,7 +96,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
         rotationPitch = 90;
         float tx = (float) (targetX - startX);
         float tz = (float) (targetZ - startZ);
-        float angle = Math.atan2(tx, tz)
+        float angle = Math.atan2(tx, tz);
         
         rotationYaw = (float) MathHelper.wrapAngleTo180_double(angle * (180/Math.PI) + 180);
         prevRotationYaw = rotationYaw;
