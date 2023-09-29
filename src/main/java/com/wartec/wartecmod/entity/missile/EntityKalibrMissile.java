@@ -18,7 +18,7 @@ public class EntityKalibrMissile extends EntitySubsonicCruiseMissileBase {
 
 	public EntityKalibrMissile(World world, float x, float y, float z, int a, int b, TileEntityVlsExhaust exhaust) {
 		super(world, x, y, z, a, b, exhaust);
-		this.isSubsonic = false;
+		this.isSubsonic = true;
 	}
 
 	@Override
