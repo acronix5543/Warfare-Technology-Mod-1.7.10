@@ -224,7 +224,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
             }
 
             if (ticksExisted < 40) { // extraction from vls cell
-                velocity = 0.7;
+                velocity = 0.3;
                 this.rotationPitch = 90;
             } else if (ticksExisted < 160 - 50) { // from launch to booster seperation
                 if (velocity < 2.8) {
@@ -246,7 +246,7 @@ public class AbstractEntityCruiseMissile extends Entity implements IChunkLoader,
                     this.rotationPitch -= 0.2;
                 }
             } else { // cruise
-                if (velocity < 50) { // 243 m/s = 879 km/h = tomahawk speed
+                if (velocity < 10) { // 243 m/s = 879 km/h = tomahawk speed
                     velocity += 2;
                 }
                 System.out.println("Cruise velo " + velocity);
